@@ -1,16 +1,16 @@
 
-Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+# Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
 
-You may assume that the array is non-empty and the majority element always exist in the array.
+# You may assume that the array is non-empty and the majority element always exist in the array.
 
-Credits:
-Special thanks to @ts for adding this problem and creating all test cases.
+# Credits:
+# Special thanks to @ts for adding this problem and creating all test cases.
 
 
 
-Note:
-algorithm refernce:
-http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step13
+# Note:
+# algorithm refernce:
+# http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step13
 
 class Solution(object):
     def majorityElement(self, nums):
