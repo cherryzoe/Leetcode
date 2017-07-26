@@ -10,7 +10,7 @@
 
 
 
-# ===solution1: brute force ==
+# ===solution1: brute force ==> timeout==
 class Solution(object):
     def findMaxAverage(self, nums, k):
         """
