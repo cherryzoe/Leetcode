@@ -26,3 +26,20 @@ class Solution(object):
             for i in range(0, len(nums)-k+1):
                 lst.append(sum(nums[i:i+k]))
             return float(max(lst))/k
+        
+   
+
+# ===solution 2: slide window ===
+class Solution(object):
+    def findMaxAverage(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: float
+        """
+        sub_sum = sum(nums[i] for i in range(k))
+        sub_max = sub_sum
+        for i in range(k, len(nums)):
+            sub_sum += nums[i] - nums[i-k]
+            sub_max = max(sub_sum, sub_max)
+        return float(sub_max)/k
