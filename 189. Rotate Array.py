@@ -11,6 +11,7 @@
 # After reversing first k numbers : 5 6 7 4 3 2 1
 # After revering last n-k numbers : 5 6 7 1 2 3 4 --> Result
 # https://leetcode.com/articles/rotate-array/ 
+# other reverse functions: https://www.quora.com/How-can-I-reverse-a-list-in-python
 
 # Note: 
 #     1. reverse() parameter end should always less than n-1, otherwise index will out of range
