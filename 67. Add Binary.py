@@ -1,15 +1,15 @@
-Given two binary strings, return their sum (also a binary string).
+# Given two binary strings, return their sum (also a binary string).
 
-For example,
-a = "11"
-b = "1"
-Return "100".
+# For example,
+# a = "11"
+# b = "1"
+# Return "100".
 
-解题思路：
-1.注意int与string之间的转换
-2.binary add的方向是从后往前，所以用string【-1-index】表示
-3.当所有位运算结束后，carry仍为1时，需要再次往前进一位，增加一个1在最高位的空位
-4.当前位的结果可以用 a+b%2 得到
+# 解题思路：
+# 1.注意int与string之间的转换
+# 2.binary add的方向是从后往前，所以用string【-1-index】表示
+# 3.当所有位运算结束后，carry仍为1时，需要再次往前进一位，增加一个1在最高位的空位
+# 4.当前位的结果可以用 a+b%2 得到
 
 class Solution:
 # @param a, a string
