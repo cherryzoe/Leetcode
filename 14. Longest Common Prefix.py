@@ -14,20 +14,24 @@ class Solution(object):
         """
         if len(strs) == 0:
             return ''
-#         找出最短的字符串，作为标准去跟其他的字符串比较
+# 找出最短的字符串，作为标准去跟其他的字符串比较
+# 调用 strs[0]的时候要考虑0是否在范围内，index out of range的情况，即当输入是空集合【 】。 这种情况跟【“”】空字符串不同，区别在于长度。
         minstr = strs[0]
         minlen = len(strs[0])
         for s in strs:
             if len(s) < minlen:
                 minstr = s
                 minlen = len(s)
-#         若最短字符串是一个空字符串，则结果为空字符串，因为不可能有其他非空字符串跟他有公共字符
+                
+#若最短字符串是一个空字符串，则结果为空字符串，因为不可能有其他非空字符串跟他有公共字符
         if minlen == 0:
             return ''
         for s in strs:
-#         判断是否为本身的情况，需要直接跳掉下一个循环
+            
+# 判断是否为本身的情况，需要直接跳掉下一个循环
             if s == minstr: continue
-#             判断最小是否是另一个字符串的子集，若是则直接返回最小即可。
+        
+# 判断最小是否是另一个字符串的子集，若是则直接返回最小即可。
             if s[:len(minstr)] != minstr:
                 for i in range(len(minstr)):
                     if s[i] != minstr[i]:
