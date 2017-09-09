@@ -1,22 +1,22 @@
-iven a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+# given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
 
-This is case sensitive, for example "Aa" is not considered a palindrome here.
+# This is case sensitive, for example "Aa" is not considered a palindrome here.
 
-Note:
-Assume the length of given string will not exceed 1,010.
+# Note:
+# Assume the length of given string will not exceed 1,010.
 
-Example:
+# Example:
 
-Input:
-"abccccdd"
+# Input:
+# "abccccdd"
 
-Output:
-7
+# Output:
+# 7
 
-Explanation:
-One longest palindrome that can be built is "dccaccd", whose length is 7.
+# Explanation:
+# One longest palindrome that can be built is "dccaccd", whose length is 7.
 
-solution1:
+# solution1:
 class Solution(object):
     def longestPalindrome(self, s):
         """
@@ -30,7 +30,7 @@ class Solution(object):
         return len(s) - odds + bool(odds)
         
         
-solution2:
+# solution2:
   a =  collections.Counter(s)
   odds = sum(v & 1 for v in a.values())
   print len(s) - odds + bool(odds) 
