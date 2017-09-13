@@ -31,6 +31,7 @@ class Solution(object):
             source, target = d1.get(t[i]), d2.get(s[i])
             if source is None and target is None:
                 d1[t[i]], d2[s[i]] = s[i], t[i]
+#                 记住每次比较的对象总是从字典里调出source， target与实际的s[i] t[i]比
             elif source != s[i] or target != t[i]:
                 return False
         return True
