@@ -36,8 +36,8 @@ class Solution(object):
                 return False
         return True
 
-    2nd time code also works:
-                source, target = dict(), dict()
+#     2nd time code also works:
+        source, target = dict(), dict()
         for i in range(len(s)):
             if s[i] not in source and t[i] not in target:
                 source[s[i]], target[t[i]] = t[i], s[i]
