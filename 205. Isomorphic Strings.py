@@ -35,3 +35,13 @@ class Solution(object):
             elif source != s[i] or target != t[i]:
                 return False
         return True
+
+    2nd time code also works:
+                source, target = dict(), dict()
+        for i in range(len(s)):
+            if s[i] not in source and t[i] not in target:
+                source[s[i]], target[t[i]] = t[i], s[i]
+            elif source.get(s[i]) != t[i] or target.get(t[i]) != s[i]:
+                return False
+        return True
+            
