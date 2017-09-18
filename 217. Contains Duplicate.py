@@ -14,3 +14,15 @@ class Solution(object):
             return False
         else:
             return len(nums) != len(set(nums))
+        
+ solution2:
+       s = set()
+       for i in nums:
+            if i in s:
+                return True
+            else:
+                s.add(i)
+        return False
+
+ solution3:
+#     思路：先排序然后判断相邻是否重复
