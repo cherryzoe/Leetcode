@@ -2,7 +2,11 @@
 
 # You may assume the integer do not contain any leading zero, except the number 0 itself.
 
-# The digits are stored such that the most significant digit is at the head of the list.
+# # The digits are stored such that the most significant digit is at the head of the list.
+# Example
+# Given [1,2,3] which represents 123, return [1,2,4].
+
+Given [9,9,9] which represents 999, return [1,0,0,0].
 
 class Solution(object):
     def plusOne(self, digits):
