@@ -2,7 +2,8 @@
 # Your function should return true if any value appears at least twice in the array, 
 # and it should return false if every element is distinct.
 
-
+solution 1: 
+    # It's slower than solution 2. Not a good choice
 class Solution(object):
     def containsDuplicate(self, nums):
         """
