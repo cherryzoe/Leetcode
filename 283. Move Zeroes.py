@@ -8,6 +8,23 @@
 # Credits:
 # Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
 
+
+#updated on 12/8/2017
+#Solution 2:
+class Solution(object):
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        # in place solution : swap zero and non-zero elements
+        idx = 0
+        for i in range(len(nums)):
+            if nums[i]:
+                nums[idx], nums[i] = nums[i], nums[idx]
+                idx += 1
+
+
 class Solution(object):
     def moveZeroes(self, nums):
         """
