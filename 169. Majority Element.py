@@ -12,6 +12,17 @@
 # algorithm refernce:
 # http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step13
 
+# Update on 12/7/2017
+# solution:
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        return sorted(nums)[len(nums)/2]
+
+
 class Solution(object):
     def majorityElement(self, nums):
         """
