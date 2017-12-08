@@ -1,8 +1,8 @@
-Lintcode 44
+# From Lintcode 44 / same with the maximum subarray
 
-Given an array of integers, find the subarray with smallest sum.
-Return the sum of the subarray.
-Notice: The subarray should contain one integer at least.
+# Given an array of integers, find the subarray with smallest sum.
+# Return the sum of the subarray.
+# Notice: The subarray should contain one integer at least.
 
 class Solution:
     """
