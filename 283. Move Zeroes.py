@@ -17,7 +17,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        # in place solution : swap zero and non-zero elements
+        # in place solution : swap zero and non-zero elements so that do not need to add zeros in the end
         idx = 0
         for i in range(len(nums)):
             if nums[i]:
