@@ -8,6 +8,20 @@
 
 # be careful that return type is int not set or list
 
+upate on 12/10/2017
+
+solution 2:
+ def missingNumber(self, nums):
+    return reduce(operator.xor, nums + range(len(nums)+1))
+
+solution 3:（faster than sol 2)
+    def missingNumber(self, nums):
+        n = len(nums)
+        return n*(n+1)/2 - sum(nums)
+
+
+
+
 class Solution(object):
     def missingNumber(self, nums):
         """
