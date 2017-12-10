@@ -19,9 +19,7 @@ solution 3:（faster than sol 2)
         n = len(nums)
         return n*(n+1)/2 - sum(nums)
 
-
-
-
+solution 1:
 class Solution(object):
     def missingNumber(self, nums):
         """
