@@ -1,9 +1,9 @@
-Write a function that takes a string as input and returns the string reversed.
+# Write a function that takes a string as input and returns the string reversed.
 
-Example:
-Given s = "hello", return "olleh".
+# Example:
+# Given s = "hello", return "olleh".
 
-solution 1: （比第二种解法慢很多）
+# solution 1: （比第二种解法慢很多）
 def reverseString(self, s):
         """
         :type s: str
@@ -16,6 +16,6 @@ def reverseString(self, s):
             n[len(n)-i-1] = temp
         return ''.join(n)
         
- solution 2:
+#  solution 2:
  def reverseString(self, s):    
       return s[::-1]
