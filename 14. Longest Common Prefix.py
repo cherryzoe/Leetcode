@@ -6,6 +6,25 @@
 # 3. 与list中其他字符串比较前，要判断是否为本身的情况，需要直接跳掉下一个循环
 # 4. 使用slice之前一定要保证index不会out of range
 
+Update on 12/10/2017
+solution 2:
+ def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if not strs:
+            return ''
+        
+        n = zip(*strs)
+        for i,v in enumerate(n):
+            if len(set(v)) > 1:
+                return strs[0][:i]
+        else:
+             return min(strs)
+       
+
+
 class Solution(object):
     def longestCommonPrefix(self, strs):
         """
