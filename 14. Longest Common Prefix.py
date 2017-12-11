@@ -16,7 +16,7 @@ solution 2:
         if not strs:
             return ''
         
-        n = zip(*strs)
+        n = zip(*strs) #Unzip the strings in the list into tuples of characters
         for i,v in enumerate(n):
             if len(set(v)) > 1:
                 return strs[0][:i]
