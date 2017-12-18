@@ -1,9 +1,9 @@
-Given a linked list, determine if it has a cycle in it.
+# Given a linked list, determine if it has a cycle in it.
 
-Follow up:
-Can you solve it without using extra space?
+# Follow up:
+# Can you solve it without using extra space?
 
-solution 1: <need extra space but very fast>
+# solution 1: <need extra space but very fast>
 class Solution(object):
     def hasCycle(self, head):
         """
@@ -20,7 +20,7 @@ class Solution(object):
         return False
         
 
-solution 2:
+# solution 2:
 class Solution(object):
     def hasCycle(self, head):
         """
