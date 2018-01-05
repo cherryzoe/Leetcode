@@ -1,7 +1,7 @@
-Given a binary tree, determine if it is height-balanced.
+# Given a binary tree, determine if it is height-balanced.
 
-For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees 
-of every node never differ by more than 1.
+# For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees 
+# of every node never differ by more than 1.
 
 解题思路
 - 一般BST的问题，首先往divide & conquer的思路去想
@@ -11,10 +11,6 @@ of every node never differ by more than 1.
 - 问题转化为分别对左右子树求maxDepth，平衡就返回最大深度，不平衡就返回-1
 - 技巧：用-1表示它不是一颗平衡二叉树
 
-作者：Jason_Yuan
-链接：https://www.jianshu.com/p/5f5bbc41f8b7
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 # Definition for a binary tree node.
 # class TreeNode(object):
