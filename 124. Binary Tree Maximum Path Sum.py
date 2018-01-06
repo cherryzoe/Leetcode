@@ -19,10 +19,10 @@ node有两种选择：
 1. 到node为止，不继续往下走， 那么可增加值为0
 2. 往下走， 可增加值 = 左子树 + 右子树(分别递归其子树得到最大值）+本身的值 
 
-- 当前路径是node.left => node = >node.right（方向可逆, 只能是单条无枝杈路径过来。 
+- 当前路径是node.left => node = >node.right（方向可逆）, 但一定只能是单条路径过来，即每个子节点只能连接一个其下面的子节点。 
   因此增量是 node.left.value + node.right.value + node.value
   
-- 如果递归下去，对于root.left下面也只能是单一无枝杈路径，因此只能从root.left.left和root.left.right中选取其一较大值： max(left,right) + self
+- 如果递归下去，对于root.left下面也只能是单一无分叉路径，因此只能从root.left.left和root.left.right中选取其一较大值： max(left,right) + self
 
                          
 lass Solution(object):
