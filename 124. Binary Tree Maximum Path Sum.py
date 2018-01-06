@@ -1,16 +1,17 @@
-Given a binary tree, find the maximum path sum.
+# Given a binary tree, find the maximum path sum.
 
-For this problem, a path is defined as any sequence of nodes from some 
-starting node to any node in the tree along the parent-child connections. 
-The path must contain at least one node and does not need to go through the root.
+# For this problem, a path is defined as any sequence of nodes from some 
+# starting node to any node in the tree along the parent-child connections. 
+# The path must contain at least one node and does not need to go through the root.
 
-For example:
-Given the below binary tree,
+# For example:
+# Given the below binary tree,
 
-       1
-      / \
-     2   3
-Return 6.
+#        1
+#       / \
+#      2   3
+# Return 6.
+
 
 解题思路：
 递归搜索每颗子树，对于当前节点node，可以看做是每条路径的必经点，也是每颗子树的根。 
@@ -23,6 +24,7 @@ node有两种选择：
   
 - 如果递归下去，对于root.left下面也只能是单一无枝杈路径，因此只能从root.left.left和root.left.right中选取其一较大值： max(left,right) + self
 
+                         
 lass Solution(object):
     def maxPathSum(self, root):
         """
