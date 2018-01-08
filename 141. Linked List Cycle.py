@@ -30,6 +30,7 @@ class Solution(object):
         if head is None:
             return False
         fast, slow = head, head
+        # while fast and fast.next: ==> also good here, as long as to check two nodes not only one
         while fast.next and fast.next.next:
             fast = fast.next.next
             slow = slow.next
