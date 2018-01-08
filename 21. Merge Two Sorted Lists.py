@@ -20,12 +20,12 @@
         dummy = cur = ListNode(0) # cur is pointed to head, that means cur.next = newHead, dummy.next = newHead
         
         while l1 and l2:
-            if l1.val < l2.val:
-                cur.next = l1
-                l1 = l1.next
+            if l1.val < l2.val: # as to linked list, compare the value of node, not the node itself.
+                cur.next = l1 
+                l1 = l1.next   # if l1 reaches the end of list, l1 = None, it will be out of the while loop in the next iteration
             else:
                 cur.next = l2
-                l2 = l2.next
+                l2 = l2.next   # if l1 reaches the end of list, l1 = None, it will be out of the while loop in the next iteration
             cur = cur.next
         cur.next = l1 or l2
         
