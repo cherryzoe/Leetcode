@@ -3,7 +3,7 @@ iven an array of integers, every element appears twice except for one. Find that
 Note:
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
-Solution 1: Bit computation
+Solution 1: Bit computation (fast and no extra space)
 class Solution(object):
     def singleNumber(self, nums):
         """
@@ -17,7 +17,8 @@ class Solution(object):
 
 
 
-Solution 2: dictionary record occurance of each element and return the occurence == 1
+Solution 2: (slow and need extra space)
+    Use dictionary record occurance of each element and return the occurence == 1
 class Solution(object):
     def singleNumber(self, nums):
         """
