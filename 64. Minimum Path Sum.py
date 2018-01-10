@@ -16,8 +16,13 @@ class Solution(object):
         :rtype: int
         """
         row, col = len(grid), len(grid[0])
+        
+#         初始化矩阵一定是先初始化一个长度为col的数组，再将此数组重复row次
         dp = [[0 for i in range(col)] for j in range(row)]
+    
+#         一定要考虑初始值，特别是这里的初始值不是0
         dp[0][0] = grid[0][0]
+    
         for i in range(1, row):
             dp[i][0] = dp[i-1][0] + grid[i][0]
         for j in range(1, col):
@@ -26,4 +31,5 @@ class Solution(object):
         for i in range(1, row):
             for j in range(1, col):
                 dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
+#                 到 grid[i][j]的累积路径和有两种选择： 从【i-1][j]过来，或是从[i][j-1]过来。选二者较小者 + 本身节点的值
         return dp[-1][-1]
