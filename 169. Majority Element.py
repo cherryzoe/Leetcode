@@ -13,7 +13,7 @@
 # http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step13
 
 # Update on 12/7/2017
-# solution:
+# solution: O(nlgn)
 class Solution(object):
     def majorityElement(self, nums):
         """
@@ -23,6 +23,7 @@ class Solution(object):
         return sorted(nums)[len(nums)/2]
 
 
+# O(n) boyer moore algorithm
 class Solution(object):
     def majorityElement(self, nums):
         """
@@ -45,3 +46,13 @@ class Solution(object):
                 count -= 1
         return major
             
+   Better/Clean verison:
+        major = None
+        count = 0
+        
+        for n in nums:
+            if count == 0:
+                major = n
+            count += (1 if major == n else -1)
+         return major
+     
