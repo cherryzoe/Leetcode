@@ -4,7 +4,7 @@
 # the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 
 
-class Solution(object):
+class Solution(object): (fast and O(n) space)
     def maxSubArray(self, nums):
         """
         :type nums: List[int]
@@ -21,7 +21,7 @@ class Solution(object):
             maxx = max(summ, maxx)
         return maxx
 
- Solution2: DP with clean code:
+ Solution2: DP with clean code (slow 52ms)
 class Solution(object):
     def maxSubArray(self, nums):
         """
