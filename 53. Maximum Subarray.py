@@ -20,3 +20,25 @@ class Solution(object):
                 summ = i
             maxx = max(summ, maxx)
         return maxx
+
+ Solution2: DP with clean code:
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        size = len(nums)
+        if size == 0:
+            return 0
+        if size == 1:
+            return nums[0]
+        
+        dp = [0 for n in range(size)]
+        res = dp[0] = nums[0]
+#       Noted that res is initialized to dp[0] here, because the loop starts from 1, so when we do res = max(res,dp[i]), we also include dp[0]
+#       res could NOT be initilized to 0
+        for i in range(1, size):
+            dp[i] = max(nums[i], dp[i-1] + nums[i])
+            res = max(res, dp[i])
+        return res
