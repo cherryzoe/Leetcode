@@ -14,6 +14,10 @@
 # - if n = odd: x^n = (x ^ n/2)*(x ^ n/2) *x   eg: 2^7 = (2 ^ 3) * (2 ^ 3) * 2
 # - if n = even x^n = (x ^ n/2)*(x ^ n/2)      eg:5^6 = (5 ^ 3) * (5 ^ 3) 
 
+
+# Recursive solution  Time complexity O(lgn)
+#                     space complexity O(n)
+
 lass Solution(object):
     def myPow(self, x, n):
         """
