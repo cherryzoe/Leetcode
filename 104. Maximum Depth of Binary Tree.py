@@ -1,17 +1,19 @@
-Given a binary tree, find its maximum depth.
+# Given a binary tree, find its maximum depth.
 
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+# The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
-For example:
-Given binary tree [3,9,20,null,null,15,7],
+# For example:
+# Given binary tree [3,9,20,null,null,15,7],
 
-    3
-   / \
-  9  20
-    /  \
-   15   7
-return its depth = 3.
+#     3
+#    / \
+#   9  20
+#     /  \
+#    15   7
+# return its depth = 3.
 
+# for the empty tree [], the root is null so there is a NULL node in the stack. when pop out, there is no propety for node.left or node.right, error out
+# must first judge if the tree is empty, if yes, then the depth is 0
 
 class Solution(object):
     def maxDepth(self, root):
