@@ -12,8 +12,9 @@
 #      2   3
 # Return 6.
 
+reference: http://bangbingsyb.blogspot.com/2014/11/leetcode-binary-tree-maximum-path-sum.html 
 
-解题思路：
+ 解题思路：
 递归搜索每颗子树，对于当前节点node，可以看做是每条路径的必经点，也是每颗子树的根。 
 node有两种选择：
 1. 到node为止，不继续往下走， 那么可增加值为0
@@ -24,6 +25,8 @@ node有两种选择：
   
 - 如果递归下去，对于root.left下面也只能是单一无分叉路径，因此只能从root.left.left和root.left.right中选取其一较大值： max(left,right) + self
 
+                         
+                         
                          
 lass Solution(object):
     def maxPathSum(self, root):
