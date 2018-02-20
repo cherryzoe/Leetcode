@@ -6,14 +6,14 @@
 # Return "100".
 
 
-2/20
-Notes:
-1. initial res as string type so do not need to convert type later. 
-    As string, another benifit is concanate string in sequence from left to right, 
-    so do no need to reverse as list even though we calculate from right to left
-2. ord() - return unicode int
-3. str() - int to string
-4. binary add: n%2 = bit digit n/2 = carrry
+# 2/20
+# Notes:
+# 1. initial res as string type so do not need to convert type later. 
+#     As string, another benifit is concanate string in sequence from left to right, 
+#     so do no need to reverse as list even though we calculate from right to left
+# 2. ord() - return unicode int
+# 3. str() - int to string
+# 4. binary add: n%2 = bit digit n/2 = carrry
 
 class Solution(object):
     def addBinary(self, a, b):
