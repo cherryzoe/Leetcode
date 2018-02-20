@@ -30,7 +30,6 @@ class Solution(object):
             if i >= 0:
                 s += ord(a[i]) - ord('0')
                 i -= 1
-                print i
             if j >= 0:
                 s += ord(b[j]) - ord('0')
                 j -= 1
