@@ -5,6 +5,40 @@
 # b = "1"
 # Return "100".
 
+
+2/20
+Notes:
+1. initial res as string type so do not need to convert type later. 
+    As string, another benifit is concanate string in sequence from left to right, 
+    so do no need to reverse as list even though we calculate from right to left
+2. ord() - return unicode int
+3. str() - int to string
+4. binary add: n%2 = bit digit n/2 = carrry
+
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        i, j  = len(a) - 1, len(b) - 1
+        s = carry = 0
+        res = ''
+        while i >= 0 or j >= 0 or carry > 0:
+            s = carry
+            if i >= 0:
+                s += ord(a[i]) - ord('0')
+                i -= 1
+                print i
+            if j >= 0:
+                s += ord(b[j]) - ord('0')
+                j -= 1
+            res = str(s%2) + res
+            carry = s/2
+        return res
+    
+#1st version: 
 # 解题思路：
 # 1.注意int与string之间的转换
 # 2.binary add的方向是从后往前，所以用string【-1-index】表示
