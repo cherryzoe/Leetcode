@@ -1,17 +1,17 @@
-Given a positive integer, return its corresponding column title as appear in an Excel sheet.
+# Given a positive integer, return its corresponding column title as appear in an Excel sheet.
 
-For example:
+# For example:
 
-    1 -> A
-    2 -> B
-    3 -> C
-    ...
-    26 -> Z
-    27 -> AA
-    28 -> AB 
+#     1 -> A
+#     2 -> B
+#     3 -> C
+#     ...
+#     26 -> Z
+#     27 -> AA
+#     28 -> AB 
 
-Idea:
-calculate the difference between digit and 'A', chr() function get each digit
+# Idea:
+# calculate the difference between digit and 'A', chr() function get each digit
 
 class Solution(object):
     def convertToTitle(self, n):
