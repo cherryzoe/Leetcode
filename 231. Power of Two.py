@@ -1,6 +1,6 @@
-Given an integer, write a function to determine if it is a power of two.
+# Given an integer, write a function to determine if it is a power of two.
 
-Note: 1 is 0 to the power of 2
+# Note: 1 is 0 to the power of 2
 
 class Solution(object):
     def isPowerOfTwo(self, n):
