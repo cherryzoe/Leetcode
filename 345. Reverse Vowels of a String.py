@@ -35,11 +35,11 @@ class Solution(object):
     
 # solution 2:
     while left < right:
-    while s[left] not in v:
+        while s[left] not in v and left < right:
+            left += 1
+        while s[right] not in v and left < right:
+            right -= 1
+        s[left],s[right] = s[right], s[left]
         left += 1
-    while s[right] not in v:
         right -= 1
-    s[left],s[right] = s[right], s[left]
-    left += 1
-    right -= 1
-print s
+    return ''.join(s)
