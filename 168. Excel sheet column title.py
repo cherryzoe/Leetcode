@@ -22,6 +22,7 @@ class Solution(object):
         res = ''
         while n > 0:
             n -= 1
+            # concatenate characters from right to left
             res = chr(n%26 + ord('A')) + res
             n = n/26
         return res

@@ -9,7 +9,7 @@
 
 
 
-
+Solution1:
 class Solution(object):
     def twoSum(self, numbers, target):
         """
@@ -23,3 +23,6 @@ class Solution(object):
              if target-num in dic:
                 return [dic[target-num],idx]
              dic[num] = idx
+
+Solution2: Using two pointer from start and end of array
+        
