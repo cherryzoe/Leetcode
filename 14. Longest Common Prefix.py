@@ -20,9 +20,9 @@ solution 2:
         for i,v in enumerate(n):
             if len(set(v)) > 1:
                 return strs[0][:i]
-        else:
-             return min(strs)
-       
+            else:
+                 return min(strs)
+           
 
 
 class Solution(object):
