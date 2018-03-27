@@ -6,6 +6,29 @@
 # Return "100".
 
 
+3/26 update:
+    
+def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        result = ''
+        index = 0
+        carry = ''
+        
+        while index < max(len(a), len(b)) or carry == '1':
+            a_val = a[-1-index] if index < len(a) else '0'
+            b_val = b[-1-index] if index < len(b) else '0'
+            
+            val = int(a_val,2) + int(b_val,2) + int(carry,2)
+            result = val % 2 + result
+            carry = '1' if val >1 else '0'
+            index += 1
+        return result
+
+
 # 2/20
 # Notes:
 # 1. initial res as string type so do not need to convert type later. 
