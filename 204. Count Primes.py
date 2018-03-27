@@ -15,13 +15,13 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-#         assume a list of all prime numbers
+        # assume a list of all prime numbers
         prime = [True] * n  
-#         in the [2, n^0.5+1) range, set all their multiple to be False. 
+        # in the [2, n^0.5+1) range, set all their multiple to be False. 
         for i in range(2, int(n**0.5)+1):
             if prime[i]:
                 for j in range(i**2, n, i):
                     prime[j] = False
-#         Count the number of Trues 
+                # Count the number of Trues 
                 return sum(prime[2:n])
         
