@@ -8,7 +8,8 @@
 
 3/26 update:
     
-def addBinary(self, a, b):
+class Solution(object):
+    def addBinary(self, a, b):
         """
         :type a: str
         :type b: str
@@ -16,15 +17,15 @@ def addBinary(self, a, b):
         """
         result = ''
         index = 0
-        carry = ''
+        carry = 0
         
-        while index < max(len(a), len(b)) or carry == '1':
+        while index < max(len(a), len(b)) or carry == 1:
             a_val = a[-1-index] if index < len(a) else '0'
             b_val = b[-1-index] if index < len(b) else '0'
             
-            val = int(a_val,2) + int(b_val,2) + int(carry,2)
-            result = val % 2 + result
-            carry = '1' if val >1 else '0'
+            val = int(a_val,2) + int(b_val,2) + carry
+            result = str(val % 2) + result
+            carry = 1 if val >1 else 0
             index += 1
         return result
 
