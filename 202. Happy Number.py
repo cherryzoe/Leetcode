@@ -4,16 +4,16 @@
 
 # Example: 19 is a happy number
 
-# 12 + 92 = 82
-# 82 + 22 = 68
-# 62 + 82 = 100
-# 12 + 02 + 02 = 1
+# 1^2 + 9^2 = 82
+# 8^2 + 2^2 = 68
+# 6^2 + 8^2 = 100
+# 1^2 + 0^2 + 0^2 = 1
 
 
 # Idea:
-# there are only two way for each loop:
+# there are two way to get out of loop:
 # 1.  n stays in 1 => happy number
-# 2.  n is not 1 and in this case n will occured in loop => set a set to store the occured n, once it's show again then it's not happy number
+# 2.  n is not 1 but n was occured in loop => create a set to store the history n, once it's show again then it's definitely not happy number
 # class Solution(object):
     def isHappy(self, n):
         """

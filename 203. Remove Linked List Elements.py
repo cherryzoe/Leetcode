@@ -25,7 +25,7 @@ class Solution(object):
         while cur and cur.next:
             if cur.next.val == val:
                 cur.next = cur.next.next
-            # Note: it must be else here. As for the case above, after we skip the target node, we should not move forward until we finish the next check if the value of cur.next if the target value.
+            # Note: it must be else here. As for the case above, after we skip the target node, we should not move forward until we finish the next check if the value of             cur.next if the target value.
             # if the value of cur.next is the target value again, then we will keep skip the cur.next node while keep cur point to the same Node.
             else:
                 cur = cur.next
