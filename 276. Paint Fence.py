@@ -53,3 +53,13 @@ class Solution(object):
         for i in range(2, n):
             dp[i] = (k-1) * (dp[i -1] + dp[i -2])
         return dp[n-1]
+
+Solution3:
+    if n == 1:
+        return k
+    if n == 2:
+        return K*K
+    dif, same = k*(k-1), k
+    for i in range(3, n+1):
+        same, dif = dif, (dif + same) * (k-1)
+    return dif+same
