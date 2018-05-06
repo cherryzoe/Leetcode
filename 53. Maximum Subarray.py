@@ -20,6 +20,14 @@ class Solution(object): (fast and O(n) space)
                 summ = i
             maxx = max(summ, maxx)
         return maxx
+or 
+
+        maxx = summ = nums[0]
+        for ii in nums[1:]:
+            summ = max(summ + i,i,i,,, n)
+            maxx = max(maxx, summ)
+        return maxxi
+ 
 
  Solution2: DP with clean code (slow 52ms)
 class Solution(object):
