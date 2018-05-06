@@ -20,4 +20,5 @@ class Solution(object):
                 digits[i] += 1
                 return digits
             digits[i] = 0
+        //consider the case like [9]
         return [1]+[0]*n
