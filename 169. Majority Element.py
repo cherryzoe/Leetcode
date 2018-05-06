@@ -14,6 +14,7 @@
 
 # Update on 12/7/2017
 # solution: O(nlgn)
+// 44ms
 class Solution(object):
     def majorityElement(self, nums):
         """
