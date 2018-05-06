@@ -10,7 +10,7 @@
 
 
 #updated on 12/8/2017
-#Solution 2:
+#Solution 2:(slower than sol#1) 
 class Solution(object):
     def moveZeroes(self, nums):
         """
