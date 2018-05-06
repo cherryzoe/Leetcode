@@ -14,7 +14,7 @@
 
 # Update on 12/7/2017
 # solution: O(nlgn)
-// 44ms
+# 44ms
 class Solution(object):
     def majorityElement(self, nums):
         """
@@ -24,6 +24,7 @@ class Solution(object):
         return sorted(nums)[len(nums)/2]
 
 
+#50ms
 # O(n) boyer moore algorithm
 class Solution(object):
     def majorityElement(self, nums):
