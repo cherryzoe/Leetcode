@@ -37,3 +37,9 @@ class Solution(object):
                 profit = max(prices[i+1] - prices[i], 0)
                 total += profit
             return total
+
+or 
+        profit = 0
+        for i in range(1,len(prices)):
+            profit += max(0, prices[i] - prices[i-1])
+        return profit
