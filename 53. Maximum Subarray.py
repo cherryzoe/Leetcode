@@ -23,7 +23,7 @@ class Solution(object): (fast and O(n) space)
 or 
 
         maxx = summ = nums[0]
-        for ii in nums[1:]:
+        for i in nums[1:]:
             summ = max(summ + i,i)
             maxx = max(maxx, summ)
         return maxxi
