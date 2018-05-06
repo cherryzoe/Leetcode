@@ -32,3 +32,14 @@ class Solution(object):
                 profit = max(profit, price - lowest)
             return profit
             
+
+Solution2: Kadane's algorithm
+        
+        if not prices:
+            return 0
+        
+        maxProfit = curProfit = 0
+        for i in range(1, len(prices)):
+            curProfit = max(0, curProfit + prices[i] - prices[i-1])
+            maxProfit = max(curProfit, maxProfit)
+        return maxProfit
