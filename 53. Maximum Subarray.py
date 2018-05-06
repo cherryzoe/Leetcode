@@ -24,7 +24,7 @@ or
 
         maxx = summ = nums[0]
         for ii in nums[1:]:
-            summ = max(summ + i,i,i,,, n)
+            summ = max(summ + i,i)
             maxx = max(maxx, summ)
         return maxxi
  
