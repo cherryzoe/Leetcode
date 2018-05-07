@@ -32,8 +32,7 @@ Updated version 5/7/2018
             if not pB:
                 pB = headA
             else:
-                pB = pB.next    
-                             
+                pB = pB.next                                 
         return pA
         
         
