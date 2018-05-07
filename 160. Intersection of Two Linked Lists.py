@@ -17,7 +17,7 @@
 # Your code should preferably run in O(n) time and use only O(1) memory.
 
 
-Updated 5/7/2018
+Updated version 5/7/2018
        
          if not headA or not headB:
             return None
