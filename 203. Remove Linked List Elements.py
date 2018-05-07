@@ -7,6 +7,21 @@
 # Idea:
 # cur point to head, loop through the list, if cur.next has the target val, skip cur.next and point to cur.next.next. 
 
+
+Updated solution: 5/7/2018
+        if not head:
+            return
+        dummy = pre = ListNode(0)
+        dummy.next = cur = head
+        while cur:
+            if cur.val == val:
+                pre.next = cur.next
+            else:
+                pre = pre.next
+            cur = cur.next
+        return dummy.next
+        
+        
 class Solution(object):
     def removeElements(self, head, val):
         """
@@ -16,7 +31,7 @@ class Solution(object):
         """
         if not head:
             return None
-        
+        # this line - cur should be applied to head before the operation on head, why?
         cur = head
         # it must be while not if here for the case of [targetVal, targetVal, ....]
         while head and head.val == val:
