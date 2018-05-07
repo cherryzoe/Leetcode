@@ -19,6 +19,15 @@ solution 3:（faster than sol 2)
         n = len(nums)
         return n*(n+1)/2 - sum(nums)
 
+solution4: Bit computation
+        res = 0
+        size = len(nums)
+        for i in range(size):
+            res ^= i ^ nums[i]
+        res ^= size
+        return res
+        
+                
 solution 1:
 class Solution(object):
     def missingNumber(self, nums):
