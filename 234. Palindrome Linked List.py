@@ -15,7 +15,7 @@ class Solution(object):
         # when fast reach the end of list, cur just reached the mid of the list
         # reverse the first half and then compare with the second half.
         while fast and fast.next:
-            fast = fast.next.next
+            fast = fast.next.next # jump the fast pointer should perform before the reverse otherwise the nodes direction changes
             nex = cur.next 
             cur.next = pre
             pre = cur
