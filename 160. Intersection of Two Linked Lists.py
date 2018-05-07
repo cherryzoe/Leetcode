@@ -16,6 +16,27 @@
 # You may assume there are no cycles anywhere in the entire linked structure.
 # Your code should preferably run in O(n) time and use only O(1) memory.
 
+
+Updated 5/7/2018
+       
+         if not headA or not headB:
+            return None
+        
+        pA, pB = headA, headB
+        while pA != pB:
+            if not pA:
+                pA = headB
+            else:
+                pA = pA.next
+                
+            if not pB:
+                pB = headA
+            else:
+                pB = pB.next    
+                             
+        return pA
+        
+        
 class Solution(object):
     def getIntersectionNode(self, headA, headB):
         """
@@ -32,8 +53,8 @@ class Solution(object):
             pb = pb.next
             
             if pa == pb:
-                 return pa   #in case of when pa and pb reach the end of linked list: pa = None and pb = None, return None
-            
+                 return pa   
+                 #in case of when pa and pb reach the end of linked list: pa = None and pb = None, return None. 
             if pa is None:
                 pa = headB
             if pb is None:
