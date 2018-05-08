@@ -54,7 +54,7 @@ class Solution(object):
             dp[i] = (k-1) * (dp[i -1] + dp[i -2])
         return dp[n-1]
 
-Solution3:
+Solution3 preferred:
     if n == 1:
         return k
     if n == 2:
