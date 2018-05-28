@@ -13,7 +13,7 @@ Example 2:
 Input: [0,1,0,1,0,1,99]
 Output: 99
 
-Solution3: 
+Solution3: slower than sol2
 class Solution(object):
     def singleNumber(self, nums):
         """
