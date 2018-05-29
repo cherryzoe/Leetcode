@@ -11,7 +11,7 @@ Example 2:
 Input: [1,1,1,3,3,2,2,2]
 Output: [1,2]
 
-Solution： Boyer Moore majority vote algorithm
+Solution： Boyer Moore majority vote algorithm ==》 相同计数加一，不同则减一
 class Solution(object):
     def majorityElement(self, nums):
         """
