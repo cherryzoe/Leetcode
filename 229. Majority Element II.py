@@ -12,6 +12,7 @@ Input: [1,1,1,3,3,2,2,2]
 Output: [1,2]
 
 Solution： Boyer Moore majority vote algorithm ==》 相同计数加一，不同则减一
+思路： 数组中至多可能会有2个出现次数超过 ⌊ n/3 ⌋ 的众数，故求top 2 majority， 从中筛选判断其次数是否超过1/3
 class Solution(object):
     def majorityElement(self, nums):
         """
