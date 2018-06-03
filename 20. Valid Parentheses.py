@@ -27,3 +27,19 @@ class Solution(object):
             else:
                 return False
         return len(stack) == 0
+       
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        dic = {'(':')', '{':'}', '[':']'}
+        stack = []
+        for i in s:
+            if i in dic:
+                stack.append(i)
+            else:
+                if not stack or dic[stack.pop()] != i:
+                    return False
+        return not stack
