@@ -1,18 +1,18 @@
-Description
-Given an array with integers.
+# Description
+# Given an array with integers.
 
-Find two non-overlapping subarrays A and B, which |SUM(A) - SUM(B)| is the largest.
+# Find two non-overlapping subarrays A and B, which |SUM(A) - SUM(B)| is the largest.
 
-Return the largest difference.
+# Return the largest difference.
 
-The subarray should contain at least one number
+# The subarray should contain at least one number
 
-Have you met this question in a real interview?  
-Example
-For [1, 2, -3, 1], return 6.
+# Have you met this question in a real interview?  
+# Example
+# For [1, 2, -3, 1], return 6.
 
-Challenge
-O(n) time and O(n) space.
+# Challenge
+# O(n) time and O(n) space.
 
 
 
