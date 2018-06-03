@@ -29,7 +29,11 @@ class Solution(object):
             div *= 10
             n /= 10
 
+        #注意此处一定是大于0， 对于处理后只剩一位数的情况，有两种可能：
+        # 1. 121 一个循环后，去除left 和 right位置的1， 只剩中间的2. 2/div判断是否有left 和 right。 此种条件下left = right
+        # 2. 1021 在一个循环后， 得到2但实际上得到的是02，这种情况通过 除以div（10)可得出left=0， right = 2， left !=right
         while x > 0:
+            
             left = x / div
             right = x % 10
             if left != right:
