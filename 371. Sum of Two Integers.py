@@ -4,6 +4,7 @@
 # Given a = 1 and b = 2, return 3.
 
 # Python 表示一个数不止32位. https://www.hrwhisper.me/leetcode-sum-two-integers/
+# http://bookshadow.com/weblog/2016/06/30/leetcode-sum-of-two-integers/
 # 因此。。做这题要保证两个数在正确的范围内（本题是int，32bit）
 
 # 如何做到呢？我们知道32bit 可以表示的无符号整数位0~0xFFFFFFFF（全0~全1）
