@@ -27,7 +27,7 @@ class Solution(object):
             cur = cur.next
             
         while cur and pre and pre.val == cur.val:
-        # it's critical to check cur is not reach the end (as None) every time to loop a linked list. Otherwise None type of node does not have Value
+        # it's critical to check cur is not reach the end (as None) every time loops a linked list. Otherwise None type of node does not have Value
             cur = cur.next
             pre = pre.next
         return not cur
