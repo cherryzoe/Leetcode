@@ -5,7 +5,7 @@
 # Note: 
 # You may assume k is always valid, 1 ≤ k ≤ array's length
 
-Idea: use quicksort
+#Idea: use quicksort
    def findKthLargest(self, nums, k):
             def partition(nums, left, right):
                 l,r = left+1, right
