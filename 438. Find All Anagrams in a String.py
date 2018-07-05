@@ -29,6 +29,7 @@
 # The substring with start index = 2 is "ab", which is an anagram of "ab".
 
 #Sliding window solution. Add one element in right edge and discard one element in left edge, then compare
+#If use another inner loop, with time exceed limit
 class Solution(object):
     def findAnagrams(self, s, p):
         """
