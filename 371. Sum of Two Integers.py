@@ -3,7 +3,8 @@
 # Example:
 # Given a = 1 and b = 2, return 3.
 
-# Python 表示一个数不止32位. https://www.hrwhisper.me/leetcode-sum-two-integers/
+# Python 表示一个数不止32位. 
+# https://www.hrwhisper.me/leetcode-sum-two-integers/
 # http://bookshadow.com/weblog/2016/06/30/leetcode-sum-of-two-integers/
 # 因此。。做这题要保证两个数在正确的范围内（本题是int，32bit）
 
@@ -34,7 +35,28 @@
             a = _sum  # add sum(without carry) and carry
         return a if a <= MAX_INT else ~((a & MAX_INT) ^ MAX_INT) #把31位之后的全部置1
  
-7/9/2018 Update:       
+7/9/2018 Update:   
+class Solution(object):
+    def getSum(self, a, b):
+        """
+        :type a: int
+        :type b: int
+        :rtype: int
+        """
+        if not a or not b:
+            return a or b
+        
+        mask = 0xffffffff
+        while b:
+            _sum = (a ^ b) & mask
+            b = ((a & b) << 1) & mask
+            a = _sum
+        if (a >> 31) & 1:
+            return ~(a ^ mask)
+        else:
+            return a
+    
+            
 class Solution(object):
     def getSum(self, a, b):
         """
