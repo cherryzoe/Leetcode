@@ -33,3 +33,31 @@
             b = ((a & b)<<1) % MASK  #calculate the carry
             a = _sum  # add sum(without carry) and carry
         return a if a <= MAX_INT else ~((a & MAX_INT) ^ MAX_INT) #把31位之后的全部置1
+ 
+7/9/2018 Update:       
+class Solution(object):
+    def getSum(self, a, b):
+        """
+        :type a: int
+        :type b: int
+        :rtype: int
+        """
+        if a == 0:
+            return b
+        elif b == 0:
+            return a
+        
+        mask = 0xffffffff  # 32 bits all 1
+        # this mask just converts it to 32bit int
+
+        # in Python, every integer is associated with its two's complement and its sign.
+        # However, doing bit operation "& mask" loses the track of sign. 
+        # Therefore, after the while loop, a is the two's complement of the final result as a 32-bit unsigned integer. 
+        while b != 0:
+            a, b = (a ^ b) & mask, ((a & b) << 1) & mask
+
+        # a is negative if the first bit is 1
+        if (a >> 31) & 1:  # shift by 31 and compare with 1
+            return ~(a ^ mask)  # flip bits
+        else:
+            return a  
