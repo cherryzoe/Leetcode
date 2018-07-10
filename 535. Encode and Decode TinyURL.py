@@ -23,8 +23,9 @@ class Codec:
             return 'http://tinyurl.com/' + Url2Code[longUrl]
         else:
             code = ''.join(random.choice(Codec.dic) for i in range(6))
-            self.Url2Code[longUrl] = code
-            self.Code2Url[code] = longUrl
+            if code not in Code2Url:
+                self.Url2Code[longUrl] = code
+                self.Code2Url[code] = longUrl
             return 'http://tinyurl.com/' + self.Url2Code[longUrl]
         
 
