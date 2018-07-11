@@ -12,6 +12,10 @@
 # Output:
 # [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
 
+tips:
+1. sorted(people, key = lambda(h,k):(-h,k)) => sort by height decrease, if height is same, sort by k(by default incrase)
+2. after sorted, we get [7,0] [7,1] [6,1] [5,2] [4,4] we know that [4,4]no mater which position to be inserted, it will not affect rest as it's the smallest. so we insert the smaller later among larger numbers. we put the large numbers first in the position first. 
+
 class Solution(object):
     def reconstructQueue(self, people):
         """
