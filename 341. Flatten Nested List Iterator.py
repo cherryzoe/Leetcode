@@ -65,6 +65,18 @@ class NestedIterator(object):
                 return True
             self.stack = self.stack[:-1] + (top.getList()[::-1])
         return False
+# wrong solution as following, here get [] result, don't know why:
+        def hasNext(self):
+        """
+        :rtype: bool
+        """
+        while self.stack:
+            top = self.stack[-1]
+            if top.isInteger():
+                return True
+            node = self.stack.pop()
+            self.stack = self.stack.append(node.getList()[::-1])
+        return False
 
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []
