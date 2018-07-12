@@ -15,6 +15,20 @@ Output: 1
 #         self.start = s
 #         self.end = e
 
+# Tips:
+#     https://leetcode.com/problems/meeting-rooms-ii/discuss/67855/Explanation-of-%22Super-Easy-Java-Solution-Beats-98.8%22-from-@pinkfloyda
+# or example, we have meetings that span along time as follows:   
+# |_____|
+#       |______|
+# |________|
+#         |_______|     
+# Then, the start time array and end time array after sorting appear like follows:
+
+# ||    ||
+#      |   |   |  |
+# the minimal number of rooms equal to the max number of overlapping meeting in any time point. 
+# The code is actually counting the number of overlapping meetings throughout the timeline and recording the maximum.
+
 class Solution(object):
     def minMeetingRooms(self, intervals):
         """
