@@ -1,17 +1,17 @@
-Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
+# Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
 
-Example 1:
+# Example 1:
 
-Input: n = 12
-Output: 3 
-Explanation: 12 = 4 + 4 + 4.
-Example 2:
+# Input: n = 12
+# Output: 3 
+# Explanation: 12 = 4 + 4 + 4.
+# Example 2:
 
-Input: n = 13
-Output: 2
-Explanation: 13 = 4 + 9.
+# Input: n = 13
+# Output: 2
+# Explanation: 13 = 4 + 9.
 
-Solution1 Numberic Theory
+# Solution1 Numberic Theory
 class Solution(object):
     def numSquares(self, n):
         """
@@ -29,8 +29,8 @@ class Solution(object):
                 return 1 if not b or not a else 2 
         return 3 
 
-Solution2 DP:
-python is overtime for this solution
+# Solution2 DP:
+# python is overtime for this solution
 class Solution(object):
     def numSquares(self, n):
         """
