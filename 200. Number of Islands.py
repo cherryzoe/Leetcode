@@ -1,26 +1,26 @@
-Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+# Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
-Example 1:
+# Example 1:
 
-Input:
-11110
-11010
-11000
-00000
+# Input:
+# 11110
+# 11010
+# 11000
+# 00000
 
-Output: 1
-Example 2:
+# Output: 1
+# Example 2:
 
-Input:
-11000
-11000
-00100
-00011
+# Input:
+# 11000
+# 11000
+# 00100
+# 00011
 
-Output: 3
-思路
-我们遍历矩阵的每一个点，对每个点都尝试进行一次深度优先搜索，如果搜索到1，就继续向它的四周搜索。
-同时我们每找到一个1，就将其标为0，这样就能把整个岛屿变成0。我们只要记录对矩阵遍历时能进入多少次搜索，就代表有多少个岛屿。
+# Output: 3
+# 思路
+# 我们遍历矩阵的每一个点，对每个点都尝试进行一次深度优先搜索，如果搜索到1，就继续向它的四周搜索。
+# 同时我们每找到一个1，就将其标为0，这样就能把整个岛屿变成0。我们只要记录对矩阵遍历时能进入多少次搜索，就代表有多少个岛屿。
 class Solution(object):
     def numIslands(self, grid):
         """
@@ -46,11 +46,11 @@ class Solution(object):
         if col < len(grid[0])-1 and grid[row][col+1] == '1':
             self.exploreIsland(grid, row, col+1)
             
- 后续 Follow Up
-Q:如何找湖的数量呢？湖的定义是某个0，其上下左右都是同一个岛屿的陆地。
-A:我们可以先用Number of island的方法，把每个岛标记成不同的ID，然后过一遍整个地图的每个点，
-如果是0的话，就DFS看这块连通水域是否被同一块岛屿包围，如果出现了不同数字的陆地，则不是湖。
-https://segmentfault.com/a/1190000003753307
+#  后续 Follow Up
+# Q:如何找湖的数量呢？湖的定义是某个0，其上下左右都是同一个岛屿的陆地。
+# A:我们可以先用Number of island的方法，把每个岛标记成不同的ID，然后过一遍整个地图的每个点，
+# 如果是0的话，就DFS看这块连通水域是否被同一块岛屿包围，如果出现了不同数字的陆地，则不是湖。
+# https://segmentfault.com/a/1190000003753307
 public class NumberOfLakes {
     
     public static void main(String[] args){
