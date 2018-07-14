@@ -40,7 +40,7 @@
 
 # 注意
 # 注意编码方式，1和3都是这一轮过后为1，这样就可以用一个模2操作来直接解码了
-
+# 参考 https://segmentfault.com/a/1190000003819277 
 
 class Solution(object):
     def gameOfLife(self, board):
