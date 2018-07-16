@@ -27,6 +27,7 @@ class Solution(object):
             if nums[x-1] < nums[x]:
                 break
         if x:
+            # 第一次出错因为没有判断x是否大于0，输入【3.2.1】，第一个循环结束时得到的 x = 0, 其实是没有找到合适的值，循环结束。 结果也错误
             for y in range(size - 1, x-1, -1):
                 if nums[y] > nums[x-1]:
                     nums[y], nums[x-1] = nums[x-1], nums[y]
