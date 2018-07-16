@@ -1,25 +1,25 @@
-Implement a trie with insert, search, and startsWith methods.
+# Implement a trie with insert, search, and startsWith methods.
 
-Example:
+# Example:
 
-Trie trie = new Trie();
+# Trie trie = new Trie();
 
-trie.insert("apple");
-trie.search("apple");   // returns true
-trie.search("app");     // returns false
-trie.startsWith("app"); // returns true
-trie.insert("app");   
-trie.search("app");     // returns true
-Note:
+# trie.insert("apple");
+# trie.search("apple");   // returns true
+# trie.search("app");     // returns false
+# trie.startsWith("app"); // returns true
+# trie.insert("app");   
+# trie.search("app");     // returns true
+# Note:
 
-You may assume that all inputs are consist of lowercase letters a-z.
-All inputs are guaranteed to be non-empty strings.
+# You may assume that all inputs are consist of lowercase letters a-z.
+# All inputs are guaranteed to be non-empty strings.
 
 
 
-reference: 
-https://www.youtube.com/watch?v=f48wGD-MuQw
-http://www.cnblogs.com/grandyang/p/4491665.html
+# reference: 
+# https://www.youtube.com/watch?v=f48wGD-MuQw
+# http://www.cnblogs.com/grandyang/p/4491665.html
 
 class TrieNode(object):
     def __init__(self):
