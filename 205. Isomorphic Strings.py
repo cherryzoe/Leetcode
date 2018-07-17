@@ -28,7 +28,7 @@ class Solution(object):
         d1, d2 = dict(), dict()
         for i in range(len(s)):
         # 第一次出错因为没有用get()而是直接用d1[t[i]],这样的话如果调用目标不存在就会报错，
-        而同样情况下 get（）则会返回None，不会报错
+        # 而同样情况下 get（）则会返回None，不会报错
             source, target = d1.get(t[i]), d2.get(s[i])
             if source is None and target is None:
                 d1[t[i]], d2[s[i]] = s[i], t[i]
