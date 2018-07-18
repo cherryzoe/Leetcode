@@ -54,6 +54,7 @@
 # |        (r2,c2)|   |       (r2,c2)|   |   (r2,c1)     |   |              |   |              |
 # +---------------+   +--------------+   +---------------+   +--------------+   +--------------+
 class NumMatrix(object):
+    
 
     def __init__(self, matrix):
         """
@@ -64,6 +65,7 @@ class NumMatrix(object):
         row = len(matrix)
         col = len(matrix[0])
         self.dp = [[0 for i in range(col+1)] for j in range(row+1)]
+        # 初始化矩阵中每个点存放从此点出发至矩阵【0，0】的总和。 建立一个辅助行列，可以不用考虑col-1<0的情况，简化代码
         
         self.dp[1][1] = matrix[0][0]
         
