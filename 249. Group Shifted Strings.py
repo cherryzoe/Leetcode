@@ -26,5 +26,5 @@ class Solution(object):
         groups = collections.defaultdict(list)
         for s in strings:
             groups[tuple((ord(c) - ord(s[0])) % 26 for c in s)] += s,
-            # %26 to deal with [az, ba]. ','is necessary when using '+' to append to list
+            # %26 to deal with [az, ba]. ','is necessary when using '+' to append to list: += something,
         return groups.values()
