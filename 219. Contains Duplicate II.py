@@ -1,5 +1,8 @@
-# Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array 
-# such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
+# Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
+
+# Idea : 
+# Initialize a dictionary to store numbers/positions which is already be read. 
+# while keep reading next number, check if it already exist in the dictionary, then check if the position difference is at most k. Prefer solution 2.
 
 # Update on 12/10:
 # Solution 3
@@ -29,7 +32,7 @@ return False
 
 
 # solution 2: (use dic to store history data)
-# note: use single character for index and value in dictinary to avoid typo
+# note: use single character for index and value in dictionary to avoid typo
 class Solution(object):
     def containsNearbyDuplicate(self, nums, k):
         """

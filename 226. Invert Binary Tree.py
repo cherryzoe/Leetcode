@@ -35,6 +35,7 @@ class Solution(object):
             node.left = node.right
             node.right = left
             
+            # keep track to next non empty node
             if node.left:
                 stack.append(node.left)
             if node.right:
