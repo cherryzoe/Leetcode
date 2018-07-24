@@ -23,6 +23,5 @@ class Solution(object):
             cur.next = pre
             pre = cur
             cur = nex
-        head = pre
-        return head
+        return pre
             
