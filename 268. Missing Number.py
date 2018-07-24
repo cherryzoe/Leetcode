@@ -20,8 +20,8 @@ solution 3:（faster than sol 2)
         return n*(n+1)/2 - sum(nums)
 
 solution 4: Bit computation
-Idea: 
-    In a complete array with no missing numbers, the index and value should be perfectly corresponding( nums[index] = index), so in a missing array, what left finally is the missing number.
+#Idea: 
+# In a complete array with no missing numbers, the index and value should be perfectly corresponding( nums[index] = index), so in a missing array, what left finally is the missing number.
         
         res = 0
         size = len(nums)
