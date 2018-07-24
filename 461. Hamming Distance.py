@@ -28,3 +28,16 @@ class Solution(object):
         :rtype: int
         """
         return bin(x^y).count('1')
+        
+        
+Solution 2: Brian Kernighan's bit counting algorithm
+    
+class Solution(object):
+def hammingDistance(self, x, y):
+         n = x ^ y
+        cnt = 0
+        while n:
+            cnt += 1
+            n &= n-1
+        return cnt
+
