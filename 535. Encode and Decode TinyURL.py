@@ -19,7 +19,7 @@ class Codec:
         """
         self.Url2Code = {}
         self.Code2Url = {}
-        if longUrl notin self.Url2Code:
+        if longUrl not in self.Url2Code:
     
             code = ''.join(random.choice(Codec.dic) for i in range(6))
            
