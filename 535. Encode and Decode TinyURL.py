@@ -19,14 +19,13 @@ class Codec:
         """
         self.Url2Code = {}
         self.Code2Url = {}
-        if longUrl in self.Url2Code:
-            return 'http://tinyurl.com/' + Url2Code[longUrl]
-        else:
+        if longUrl notin self.Url2Code:
+    
             code = ''.join(random.choice(Codec.dic) for i in range(6))
-            if code not in Code2Url:
-                self.Url2Code[longUrl] = code
-                self.Code2Url[code] = longUrl
-            return 'http://tinyurl.com/' + self.Url2Code[longUrl]
+           
+            self.Url2Code[longUrl] = code
+            self.Code2Url[code] = longUrl
+        return 'http://tinyurl.com/' + self.Url2Code[longUrl]
         
 
     def decode(self, shortUrl):
