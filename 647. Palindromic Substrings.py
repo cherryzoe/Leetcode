@@ -29,12 +29,12 @@ class Solution(object):
         """
         self.cnt = 0
         for i in range(len(s)):
-            self.check(s, i, i)
-            self.check(s, i, i+1)
+            self.check(s, i, i) #To check the palindrome of odd length palindromic sub-string
+            self.check(s, i, i+1) #To check the palindrome of even length palindromic sub-string
         return self.cnt
         
     def check(self, s, left, right):
         while left >= 0 and right < len(s) and s[left] == s[right]:
             self.cnt += 1
-            left -= 1
-            right += 1  
+            left -= 1 #To trace string in left direction
+            right += 1   
