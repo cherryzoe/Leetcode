@@ -48,8 +48,6 @@
 
 # 2 如果前面所有的gas - cost加起来小于零，那么前面所有的点都不能作为出发点。
 
-# 原创： 靖心http://write.blog.csdn.net/postedit/14106137
-
 # 第一个属性的正确性很好理解。那么为什么第二个属性成立呢？
 
 # 首先我们是从i =0个gas station计算起的，设开始剩油量为left=0，如果这个station的油是可以到达下一个station的，那么left=gas-cost为正数，
