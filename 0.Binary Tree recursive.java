@@ -405,3 +405,21 @@ private boolean isBST2(Node node, int min, int max) {
   }
 }
   
+
+15. //二叉树叶子节点数
+int Leafnum(Node* root)
+{
+    if(!root)
+    {
+        return 0;
+    }
+    else if(  (root->Left == NULL) && (root->Right == NULL) )
+    {
+        return 1;
+    }
+    else
+    {
+        return  (Leafnum(root->Left) + Leafnum(root->Right)) ;
+    }
+}
+
