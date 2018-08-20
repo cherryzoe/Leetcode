@@ -16,6 +16,10 @@
 # You may assume there are no cycles anywhere in the entire linked structure.
 # Your code should preferably run in O(n) time and use only O(1) memory.
 
+consider following test cases:
+1. L1 and L2 have difference lenght but intersection occurs => can find intersection after switch head
+2. L1 and L2 have samelenght and intersection occurs => can find intersection before switch head
+3. No intersection => reach the tail in first loop(if length equal) or second loop ( different length) and return None
 
 Updated version 5/7/2018
        
