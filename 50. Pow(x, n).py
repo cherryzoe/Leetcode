@@ -37,3 +37,21 @@ lass Solution(object):
             return temp*temp*x
         elif n % 2 == 0:
             return temp * temp
+
+        
+class Solution(object):
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+        if n == 0:
+            return 1
+        if n < 0:
+            return 1/self.myPow(x, -n)
+        res = self.myPow(x, n>>1)  #n>>1 is faster than n/2
+        res *= res
+        if n & 0x1 == 1: # check if n is odd number
+            res *= x
+        return res
