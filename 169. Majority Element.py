@@ -3,10 +3,6 @@
 
 # You may assume that the array is non-empty and the majority element always exist in the array.
 
-# Credits:
-# Special thanks to @ts for adding this problem and creating all test cases.
-
-
 
 # Note:
 # algorithm refernce:
@@ -22,7 +18,6 @@ class Solution(object):
         :rtype: int
         """
         return sorted(nums)[len(nums)/2]
-
 
 #50ms
 # O(n) boyer moore algorithm

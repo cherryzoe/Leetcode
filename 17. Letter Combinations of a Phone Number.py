@@ -2,8 +2,6 @@
 
 # A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
 
-
-
 # Example:
 
 # Input: "23"
@@ -22,8 +20,10 @@ class Solution(object):
         
         if not digits:
             return []
-#         初始化为空字符串，这样下一步才能与其他字符串连起来。初始化为【】的话将始终为【】
+            
+# 初始化为空字符串，这样下一步才能与其他字符串连起来。初始化为【】的话将始终为【】
         res = [""]
+        
         for digit in digits:
             newres = []
             lst = mapping[digit]
