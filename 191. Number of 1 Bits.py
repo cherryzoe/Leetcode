@@ -21,6 +21,7 @@ class Solution(object):
         """
         cnt = 0
         while n:
-            n = n & (n-1) #convert the rightmost bit of 1 into 0 in n
+            n = n & (n-1) 
+#convert the rightmost bit of 1 into 0 for each loop. until all 1s are turned into 0(n==0)
             cnt += 1
         return cnt
