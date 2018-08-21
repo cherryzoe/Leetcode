@@ -69,3 +69,18 @@ class Solution(object):
         node.left, node.right = node.right, node.left
         self.helper(node.left)
         self.helper(node.right)
+
+# Clean code for above
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if not root:
+            return 
+
+        root.left, root.right = root.right, root.left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        return root
