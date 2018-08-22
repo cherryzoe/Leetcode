@@ -28,6 +28,7 @@ class Node(object):
         self.val = val
         self.children = children
 """
+# similar to LC102 bianry tree level order traverse. one more loop to get children from nested structure
 class Solution(object):
     def levelOrder(self, root):
         """
