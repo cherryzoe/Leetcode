@@ -1,22 +1,22 @@
-Given a binary tree, return the postorder traversal of its nodes' values.
+# Given a binary tree, return the postorder traversal of its nodes' values.
 
-Example:
+# Example:
 
-Input: [1,null,2,3]
-   1
-    \
-     2
-    /
-   3
+# Input: [1,null,2,3]
+#    1
+#     \
+#      2
+#     /
+#    3
 
-Output: [3,2,1]
-Follow up: Recursive solution is trivial, could you do it iteratively?
+# Output: [3,2,1]
+# Follow up: Recursive solution is trivial, could you do it iteratively?
 
-Idea: 
-pre-order: root - left - right
-post-order: left - right - root
+# Idea: 
+# pre-order: root - left - right
+# post-order: left - right - root
 
-if we modify pre-order into root - right - left and reverse the result so that we get post order. 
+# if we modify pre-order into root - right - left and reverse the result so that we get post order. 
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -44,3 +44,24 @@ class Solution(object):
             if node.right:
                 stack.append(node.right)
         return res[::-1]
+
+   Recursive version: 
+   class Solution(object):
+    def postorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+        if not root:
+            return res
+        self.helper(root, res)
+        return res
+        
+    def helper(self, root, res):
+        if not root:
+            return
+        self.helper(root.left, res)
+        self.helper(root.right, res)
+        res.append(root.val)
+      
