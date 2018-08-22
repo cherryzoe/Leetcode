@@ -41,6 +41,8 @@ class MyStack(object):
         q.append(x)
         for i in range(len(q)-1):
             q.append(q.popleft())
+#             everytime we push a new element into queque, we move out all exsiting element from queue(except new append) from head 
+#             and append to the tail. in this way we make sure the new element push into queue will be the first one to pop out next time
 
     def pop(self):
         """
