@@ -31,9 +31,7 @@ class Solution(object):
         stack = [root]
         while stack:
             node = stack.pop()
-            left = node.left
-            node.left = node.right
-            node.right = left
+            node.left, node.right = node.right, node.left
             
             # keep track to next non empty node
             if node.left:
