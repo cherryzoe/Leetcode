@@ -48,3 +48,18 @@ class Solution(object):
             cur = nx
         return res
 
+Clean code: 
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: Node
+        :rtype: List[List[int]]
+        """
+        if not root:
+            return []
+        cur = [root]
+        res = []
+        while cur: 
+            res.append([node.val for node in cur])  
+            cur = [child for node in cur for child in node.children if node.children]
+        return res
