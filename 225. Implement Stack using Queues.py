@@ -20,8 +20,9 @@
 # You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).
 
 # in python, collections.deque is the default way to implement queue data structure.
-# De-queue: deque.popleft() is O(1) 
-# En-queue: deque.append()
+# De-queue: deque.popleft() is O(1) - pop from front
+# En-queue: deque.append() - add from end
+
 class MyStack(object):
 
     def __init__(self):
