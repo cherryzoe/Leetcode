@@ -9,10 +9,10 @@ class Solution(object):
         # check if cur is None, is cur is None then get out the loop. 
         # Pre is at the tail of the original list, make pre as the head of reversed List and return new head.
         # Eg.
-        -----------------------
+#         -----------------------
         # pre     cur      nex
         # None    head  -> a 
-        ------------------------
+#         ------------------------
         #        pre      cur
         # None <- head    a  ->
 
