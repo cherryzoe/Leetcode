@@ -34,6 +34,6 @@ def hammingDistance(self, x, y):
         cnt = 0
         while n:
             cnt += 1
-            n &= n-1 # put the most right 1 into 0 in n
+            n &= n-1 # convert the most right 1 into 0 in n
         return cnt
 
