@@ -21,8 +21,11 @@
 # Input: 4
 # Output: "1211"
 
-# 思路： 设s[0]为baseline, 遍历s每一位字符，若与baseline相同，cnt加1. 直到碰到不同字符时，将之前的结果以cnt + baseline 的格式存入temp中。 
-# 同时将新字符设为basliene, cnt = 1， 继续到下一步遍历直到所有字符都结束。 将当前的剩余结果存入temp中。
+# 思路： 
+# 设s[0]为baseline, 遍历s每一位字符，每个字符有且仅有两种可能性：
+#  - 若与baseline相同，cnt加1. 继续到下一个字符
+#  - 与baseline不同，将之前的结果以cnt + baseline 的格式存入temp中。同时将新字符设为basliene, cnt = 1，继续到下一个字符 
+#  直到所有字符都结束时， 将剩余结果存入temp中。
 # 将temp的值赋予s作为下次遍历的新字符串
 
 class Solution(object):
