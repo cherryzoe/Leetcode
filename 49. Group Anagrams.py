@@ -24,6 +24,7 @@ class Solution(object):
         dic = {}
         for s in strs:
             key = ''.join(sorted(s))
+            # or we can use: key  = tuple(sorted(s)). list can not be the key of dictionary. need to converti list to string or tuple
             if key not in dic:
                 dic[key] = [s]
             else:
