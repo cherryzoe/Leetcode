@@ -15,13 +15,13 @@
 #   [15,7]
 # ]
 
-解题思路：
--   用一个数组存放当current level 的 Node, 首先得到其所有节点的值。然后判断每个节点是否有子节点, 若有则放到nex中
--   需要注意的是 nex 数组在每次循环开始时初始化为空
--   比较容易疏忽的是返回时存Node的val而不是Node
+# 解题思路：
+# -   用一个数组存放当current level 的 Node, 首先得到其所有节点的值。然后判断每个节点是否有子节点, 若有则放到nex中
+# -   需要注意的是 nex 数组在每次循环开始时初始化为空
+# -   比较容易疏忽的是返回时存Node的val而不是Node
 
 
-
+# solution1 - iterative, time complex: O(n) Space complex : O(1)
 class Solution(object):
     def levelOrder(self, root):
         """
@@ -47,4 +47,28 @@ class Solution(object):
         
         return res
     
+ 
+# solution 2 - recursive,  time complex: O(n) Space complex : O(n)
+#  用level记录当前层数，level每增加一层，res的长度增加1. 当层数>res的长度时，往res中增加一个新空集用于后续记录该层的节点
+#     res = [[nodes.val in level 0], [nodes.val in level1], ...]
+
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        res = []
+        if not root:
+            return []
+        self.helper(root, 0, res)
+        return res
     
+    def helper(self, node, level, res):
+        if not node:
+            return 
+        if level >= len(res):
+            res.append([]) 
+        res[level].append(node.val)
+        self.helper(node.left, level + 1, res)
+        self.helper(node.right, level + 1, res)
