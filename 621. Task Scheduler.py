@@ -20,6 +20,14 @@
 # 然后此时和之前求出的空位数相比较，如果空位数要大于剩余的task数，那么则说明还需补充多余的空位，否则就直接返回task的总数即可，
 # 参见代码如下：
 
+# 举例： AAAABBBBCCD, n=2
+#           ABC    ABC   ABD   AB(Mcnt)
+# 单位长度(n+1) * (3-1)个单位 + Mcnt（最多元素个数）
+# 取A到A为一个单位， 每个单位长度为N+1， 一共有count(A)-1个单位， 最后加上最多元素个数，如果A，B个数均为最大， Mcnt=2
+# task_cnt = {A:4, B:4, C:2, D:1}.values = {3,3,2,1}
+# max_cnt = 3 得到最多元素的个数， 
+# Mcnt = 2 此处有两个最大值A, B
+
 class Solution(object):
     def leastInterval(self, tasks, n):
         """
