@@ -25,3 +25,24 @@ class Solution(object):
             cur = nex
         return pre
             
+# solution2 recursive:
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        return self.helper(head, None)
+    
+    def helper(self, head, newHead):
+        if not head:
+            return newHead
+        nextNode = head.next
+        head.next = newHead
+        return self.helper(nextNode, head)
