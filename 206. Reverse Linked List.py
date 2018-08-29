@@ -46,3 +46,17 @@ class Solution(object):
         nextNode = head.next
         head.next = newHead
         return self.helper(nextNode, head)
+or
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head or head.next == None:
+            return head
+        p = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return p
