@@ -29,3 +29,24 @@ class Solution(object):
                     if j != 0 and grid[i][j-1] == 1:
                         repeat += 1
         return cnt * 4 - repeat * 2
+
+#     每次查看右边和下面一个也对，矩阵问题要注意边界条件
+    class Solution(object):
+    def islandPerimeter(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        row = len(grid)
+        col = len(grid[0])
+        cnt, repeat = 0,0
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j]:
+                    cnt += 1
+                    if i+1 < row and grid[i+1][j]:
+                        repeat +=1
+                    if j+1 < col and grid[i][j+1]:
+                        repeat += 1
+        return cnt*4 - repeat*2
+    
