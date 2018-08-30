@@ -34,6 +34,22 @@ class Solution(object):
         return self.getSum(_sum, carry)
     
 # Iterative solution:
+class Solution(object):
+    def getSum(self, a, b):
+        """
+        :type a: int
+        :type b: int
+        :rtype: int
+        """
+        MASK = 0xFFFFFFFF
+        max_int = 0x7FFFFFFF
+        min_int = 0x80000000
+        
+        while b:
+            a, b = (a^b) & MASK, ((a&b)<<1) & MASK
+        return a if a < max_int else ~(a ^ MASK)
+      
+      
     def getSum(self, a, b):
         """
         :type a: int
