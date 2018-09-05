@@ -26,7 +26,27 @@ class Solution(object):
         nums2 = set(nums2)
         return list(nums1 & nums2)
         
-
+# use dictionary will be fast two!!!
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        res = []
+        dic = {}
+        for i in nums1:
+            dic[i] = True
+        for i in nums2:
+            if i in dic:
+                dic[i] = False
+        for i,v in dic.items():
+            if v == False:
+                res.append(i)
+        return res
+        
+        
 solution 2: list a little bit slower than set in python
 class Solution(object):
     def intersection(self, nums1, nums2):
