@@ -12,7 +12,20 @@
 # Output: 1
 # Explanation: Integer 128 has binary representation 00000000000000000000000010000000
 
+Solution 1: Bit shifting
+class Solution(object):
+def hammingWeight(self, n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    res = 0
+    while n:
+        res += n & 1
+        n = n >> 1
+    return res
 
+Solution2: Bit manipulate to clear the least bit    
 class Solution(object):
     def hammingWeight(self, n):
         """
