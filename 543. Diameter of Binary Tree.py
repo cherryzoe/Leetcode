@@ -15,23 +15,27 @@ Note: The length of path between two nodes is represented by the number of edges
 Solution:
 For every node, length of longest path which pass it = MaxDepth of its left subtree + MaxDepth of its right subtree
 
-def diameterOfBinaryTree(self, root):
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def diameterOfBinaryTree(self, root):
         """
         :type root: TreeNode
         :rtype: int
-        """        
-        self.maxDep = 0
+        """
+        self.res = 0
+        self.maxDepth(root)
+        return self.res
         
-        def maxDepth(root):
-            if not root:
-                return 0
-            left = maxDepth(root.left)
-            right = maxDepth(root.right)
-            self.maxDep = max(self.maxDep, left+right)
-
-            return max(left, right) + 1
-
-
-        maxDepth(root)
-        return self.maxDep
-   
+    def maxDepth(self, node):
+        if not node:
+            return 0
+        left = self.maxDepth(node.left)
+        right = self.maxDepth(node.right)
+        self.res = max(self.res, left + right)
+        return max(left, right) +1
