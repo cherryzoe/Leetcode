@@ -10,7 +10,7 @@
 # Follow up:
 # What if the inputs contain unicode characters? How would you adapt your solution to such case?
 
-solution1:
+solution1:(slowest)
 class Solution(object):
     def isAnagram(self, s, t):
         """
@@ -37,3 +37,23 @@ solution2:
             if k != 0:
                 return False
         return True
+    
+solution3:(best) faster than sol2 and much faster than sol1
+    class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        lst = collections.defaultdict(int)
+        for i in s:
+            lst[i] += 1
+            
+        for j in t:
+            if j not in lst:
+                return False
+            lst[j] -= 1
+            if lst[j] == 0:
+                del(lst[j])
+        return len(lst) == 0
