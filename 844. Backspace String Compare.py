@@ -48,4 +48,29 @@ class Solution(object):
                 stack.append(s)
         return ''.join(stack)
         
+solution2: O(1)space?
+    Iterate through the string in reverse. If we see a backspace character, the next non-backspace character is skipped. 
+    If a character isn't skipped, it is part of the final answer.
+    class Solution(object):
+    def backspaceCompare(self, S, T):
+        """
+        :type S: str
+        :type T: str
+        :rtype: bool
+        """
+        return self.tostring(S) == self.tostring(T)
+    
+    def tostring(self, string):
+        skip = 0
+        res = []
+        for s in reversed(string):
+            if s == '#':
+                skip += 1
+            else:
+                if skip:
+                    skip -= 1
+                else:
+                    res.append(s)
+        return ''.join(res)
+        
         
