@@ -23,6 +23,7 @@
 #         self.left = None
 #         self.right = None
 
+# solution 1: with extra space
 class Solution(object):
     def closestValue(self, root, target):
         """
@@ -40,7 +41,7 @@ class Solution(object):
         
         return min(path, key = lambda x: abs(target - x))
 
-O(1) space: 
+# solution 2: 推荐 O(1) space
 class Solution(object):
     def closestValue(self, root, target):
         """
