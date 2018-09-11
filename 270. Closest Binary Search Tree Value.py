@@ -1,20 +1,20 @@
-Given a non-empty binary search tree and a target value, find the value in the BST that is closest to the target.
+# Given a non-empty binary search tree and a target value, find the value in the BST that is closest to the target.
 
-Note:
+# Note:
 
-Given target value is a floating point.
-You are guaranteed to have only one unique value in the BST that is closest to the target.
-Example:
+# Given target value is a floating point.
+# You are guaranteed to have only one unique value in the BST that is closest to the target.
+# Example:
 
-Input: root = [4,2,5,1,3], target = 3.714286
+# Input: root = [4,2,5,1,3], target = 3.714286
 
-    4
-   / \
-  2   5
- / \
-1   3
+#     4
+#    / \
+#   2   5
+#  / \
+# 1   3
 
-Output: 4
+# Output: 4
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -34,7 +34,8 @@ class Solution(object):
             return 
         path = []
         while root:
-            path.append(root.val)
+            path.append(root.val) 
+#           先存当前节点的值的时候必须保证当前节点不是None否则 None.val会报错，因此在while check过了进入循环后，进行移动操作前，第一时间存
             root = root.left if root.val > target else root.right
         
         return min(path, key = lambda x: abs(target - x))
