@@ -6,6 +6,26 @@
 # Return "100".
 
 
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        res = ''
+        i,j,carry = len(a)-1, len(b)-1, 0
+        while i > -1 or j > -1 or carry:
+            a_val = ord(a[i]) - ord('0') if i > -1 else 0
+            b_val = ord(b[j]) - ord('0') if j > -1 else 0
+            summ = a_val + b_val + carry
+            res = str(summ%2) + res
+            carry = summ / 2
+            i -= 1
+            j -= 1
+        return res
+    
+
 3/26 update:
     
 class Solution(object):
