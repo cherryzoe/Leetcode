@@ -24,13 +24,7 @@
 # 2.  5 -> 2 -> 1
 # 3. -3 -> 11
 
-
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# 双重循环，第一层pathSum遍历每一个节点， 第二层循环sumUp返回某一个节点下子树的可能路径总数
 
 class Solution(object):
     def pathSum(self, root, sum):
@@ -55,3 +49,30 @@ class Solution(object):
             res += self.sumUp(node.right, sum - node.val)
         return res
             
+#    一样的代码， 上面的更简洁，下面这种易于理解
+class Solution(object):
+    
+    def pathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: int
+        """
+        if not root:
+            return 0
+        res = 0
+        res += self.dfs(root, sum)
+        res += self.pathSum(root.left, sum)
+        res += self.pathSum(root.right, sum)
+        return res
+    
+    def dfs(self, root, subsum):
+        if not root:
+            return 0
+        cnt = 0
+        if subsum == root.val:
+            cnt += 1
+        cnt += self.dfs(root.left, subsum - root.val)
+        cnt += self.dfs(root.right, subsum - root.val)
+        return cnt
+        
