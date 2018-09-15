@@ -19,7 +19,7 @@ class Solution(object):
         """
         l, r = 0, len(s)-1
         while l < r:
-            while l < r and not s[l].isalnum():
+            while l < r and not s[l].isalnum(): #skip space and others except character
                 l += 1
                 
             while l < r and  not s[r].isalnum():
