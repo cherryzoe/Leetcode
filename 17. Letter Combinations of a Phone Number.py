@@ -16,6 +16,21 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
+        mapping = {'1': '', '2':'abc', '3':'def', '4':'ghi', '5':'jkl', '6':'mno', '7':'pqrs', '8':'tuv', '9':'wxyz'}        
+        if not digits:
+            return []
+        res = ['']
+        for d in digits:
+            newres = mapping[d]
+            res = [i + j for i in res for j in newres]
+        return res
+    
+class Solution(object):
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
         mapping = {'1': '', '2':'abc', '3':'def', '4':'ghi', '5':'jkl', '6':'mno', '7':'pqrs', '8':'tuv', '9':'wxyz'}
         
         if not digits:
