@@ -57,3 +57,35 @@ class Solution:
             curLevel = nexLevel
             
         return res
+
+#    --solution -2--- only use one queue --------
+
+    class Solution:
+    # @param {TreeNode} root the root of binary tree
+    # @return {ListNode[]} a lists of linked list
+    def binaryTreeToLists(self, root):
+        # Write your code here
+        if not root:
+            return []
+            
+        q = collections.deque([root])
+        res = []
+        
+        head, tail = ListNode(0), None
+        
+        while q:
+            head.next = None
+            tail = head
+            
+            for _ in range(len(q)):
+                node = q.popleft()
+                tail.next = ListNode(node.val)
+                tail = tail.next
+            
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            res.append(head.next)
+
+        return res
