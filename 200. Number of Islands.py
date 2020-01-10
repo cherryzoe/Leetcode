@@ -46,6 +46,44 @@ class Solution(object):
         if col < len(grid[0])-1 and grid[row][col+1] == '1':
             self.exploreIsland(grid, row, col+1)
             
+     #BFS version
+    class Solution(object):
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        if not grid or not grid[0]:
+            return 0
+        
+        cnt = 0
+        row, col = len(grid), len(grid[0])
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == '1':
+                    self.bfs(grid, i, j)
+                    cnt += 1
+        return cnt
+    
+    
+    def bfs(self, grid, x, y):
+        grid[x][y] = '0'
+        q = collections.deque([(x, y)])
+        while q:
+            x,y = q.popleft()
+            for delta_x, delta_y in [(0,1), (0,-1), (1,0), (-1,0)]:
+                x_next = delta_x + x
+                y_next = delta_y + y
+                if not self.isValid(grid, x_next, y_next):
+                    continue
+                q.append((x_next, y_next))
+                grid[x_next][y_next] = '0'
+                    
+        
+    def isValid(self, grid, x, y):
+        n, m = len(grid), len(grid[0])
+        return 0 <= x < n and 0 <= y < m and grid[x][y] == '1'
+    
 #  后续 Follow Up
 # Q:如何找湖的数量呢？湖的定义是某个0，其上下左右都是同一个岛屿的陆地。
 # A:我们可以先用Number of island的方法，把每个岛标记成不同的ID，然后过一遍整个地图的每个点，
