@@ -32,7 +32,9 @@
 # Explanation: The endWord "cog" is not in wordList, therefore no possible transformation.
 
 
-# solution 1: BFS brute force/ run out of time limit
+# solution 1: BFS 
+# Note: 务必将给定的wordList转成字典/SET，再查询，可大大降低查询速度
+
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordList):
         """
@@ -41,31 +43,30 @@ class Solution(object):
         :type wordList: List[str]
         :rtype: int
         """
-        level = {beginWord:1}
+        dic = set(wordList)
+        visited = {beginWord:1}
         queue = collections.deque([beginWord])
         
         while queue:
             word = queue.popleft()
-            if  word == endWord:
-                return level[word]  
-            
-            next_words = self.get_next_word(word)
+            if word == endWord:
+                return visited[word]
+            next_words = self.findAllNeghbers(word)
             for next_word in next_words:
-                if next_word in level or next_word not in wordList:
+                if next_word in visited or next_word not in dic:
                     continue
-                level[next_word] = level[word] + 1
                 queue.append(next_word)
+                visited[next_word] = visited[word] + 1
         return 0
         
-        
-    def get_next_word(self, word):
-        words = []
-        for i in range(len(word)):
-            left = word[:i]
-            right = word[i+1:]
-            for cur in 'abcdefghijklmnopqrstpqrstuvwxyz':
-                if cur == i:
-                    continue
-                words.append(left+cur+right)        
-        
-        return words
+    
+    def findAllNeghbers(self, word):
+            neighbers = []
+            for i in range(len(word)):
+                left = word[:i]
+                right = word[i+1:]
+                for cur in 'qwertyuiopasdfghjklzxcvbnm':
+                    if cur == word[i]:
+                        continue
+                    neighbers.append(left+cur+right)
+            return neighbers
