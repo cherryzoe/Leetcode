@@ -12,6 +12,7 @@
 # Absolute value of elements in the array and x will not exceed 104
 
 # 解题思路：二分是找出x的位置，然后找出其旁边的k个数
+# https://blog.csdn.net/fuxuemingzhu/article/details/82968136
 
 class Solution(object):
     def findClosestElements(self, arr, k, x):
