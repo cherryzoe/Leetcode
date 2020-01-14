@@ -1,47 +1,47 @@
 
-88. Lowest Common Ancestor of a Binary Tree
-中文English
-Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
+# 88. Lowest Common Ancestor of a Binary Tree
+# 中文English
+# Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
 
-The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
+# The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
 
-Example
-Example 1:
+# Example
+# Example 1:
 
-Input：{1},1,1
-Output：1
-Explanation：
- For the following binary tree（only one node）:
-         1
- LCA(1,1) = 1
-Example 2:
+# Input：{1},1,1
+# Output：1
+# Explanation：
+#  For the following binary tree（only one node）:
+#          1
+#  LCA(1,1) = 1
+# Example 2:
 
-Input：{4,3,7,#,#,5,6},3,5
-Output：4
-Explanation：
- For the following binary tree:
+# Input：{4,3,7,#,#,5,6},3,5
+# Output：4
+# Explanation：
+#  For the following binary tree:
 
-      4
-     / \
-    3   7
-       / \
-      5   6
+#       4
+#      / \
+#     3   7
+#        / \
+#       5   6
 			
- LCA(3, 5) = 4
-Notice
-Assume two nodes are exist in tree
+#  LCA(3, 5) = 4
+# Notice
+# Assume two nodes are exist in tree
 
 
 
-这道题目和Lowest Common Ancestor of a Binary Search Tree
-类似，只不过现在条件变为一颗普通的二叉树，要求出最低公共祖先。
+# 这道题目和Lowest Common Ancestor of a Binary Search Tree
+# 类似，只不过现在条件变为一颗普通的二叉树，要求出最低公共祖先。
 
-首先要先确定给的两个node是否都在tree里，如果都在tree里的话，就可以分成3种情况，第一种情况是两个节点是在公共祖先的左右两侧，第二种情况是都在树的左侧，第三种情况是都在树的右侧，如果是第二，第三种情况的话，公共祖先就在给定的两个点中比较上面的那一个。
+# 首先要先确定给的两个node是否都在tree里，如果都在tree里的话，就可以分成3种情况，第一种情况是两个节点是在公共祖先的左右两侧，
+# 第二种情况是都在树的左侧，第三种情况是都在树的右侧，如果是第二，第三种情况的话，公共祖先就在给定的两个点中比较上面的那一个。
 
-如果转换成代码的话，从上往下走，base case分为3种，判断遇到了p就直接返回p，遇到q就直接返回q，不用向下做了。如果left,right都不为空，就返回root自己；left,right哪一个不为空就返回哪个，整个recursion做完就可以得到LCA。
-————————————————
-版权声明：本文为CSDN博主「BridgeGeorge」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/ylyg050518/article/details/77508476
+# 如果转换成代码的话，从上往下走，base case分为3种，判断遇到了p就直接返回p，遇到q就直接返回q，不用向下做了。
+# 如果left,right都不为空，就返回root自己；left,right哪一个不为空就返回哪个，整个recursion做完就可以得到LCA。
+
 
 class Solution:
     """
