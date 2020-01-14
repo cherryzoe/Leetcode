@@ -42,6 +42,7 @@
 # 如果转换成代码的话，从上往下走，base case分为3种，判断遇到了p就直接返回p，遇到q就直接返回q，不用向下做了。
 # 如果left,right都不为空，就返回root自己；left,right哪一个不为空就返回哪个，整个recursion做完就可以得到LCA。
 
+# 这个题里面lowestCommonAncestor(root, p, q)函数的作用是判断p和q在root树中最低的公共祖先是什么，返回值是公共祖先。
 
 class Solution:
     """
