@@ -55,3 +55,38 @@ class Solution(object):
                 res = root.val
             root = root.left if target < root.val else root.right
         return res
+
+    # Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def closestValue(self, root, target):
+        """
+        :type root: TreeNode
+        :type target: float
+        :rtype: int
+        """
+        if not root:
+            return None
+        
+        min_diff = sys.maxint
+        close_val = root.val
+        
+        while root:
+            diff = root.val - target
+            if abs(diff) < min_diff:
+                close_val = root.val
+                min_diff = abs(diff)
+                
+            if diff == 0:
+                return root.val
+            if diff > 0:
+                root = root.left
+            else:
+                root = root.right
+                
+        return close_val
