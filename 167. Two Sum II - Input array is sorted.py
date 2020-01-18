@@ -7,6 +7,24 @@
 # Input: numbers={2, 7, 11, 15}, target=9
 # Output: index1=1, index2=2
 
+
+Solution1:
+class Solution(object):
+    def twoSum(self, numbers, target):
+        """
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        # usd dictionary to record scaned data, when return, return the index from dictionay first as index1, which is always               smaller than index2. 
+        dic = {} 
+        for idx, num in enumerate(numbers,1):
+             if target-num in dic:
+                return [dic[target-num],idx]
+             dic[num] = idx
+
+Solution2: Using two pointer from start and end of array
+  
 1/18/2020
 class Solution(object):
     def twoSum(self, numbers, target):
@@ -26,21 +44,3 @@ class Solution(object):
             else:
                 l += 1
         return False
-
-Solution1:
-class Solution(object):
-    def twoSum(self, numbers, target):
-        """
-        :type numbers: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        # usd dictionary to record scaned data, when return, return the index from dictionay first as index1, which is always               smaller than index2. 
-        dic = {} 
-        for idx, num in enumerate(numbers,1):
-             if target-num in dic:
-                return [dic[target-num],idx]
-             dic[num] = idx
-
-Solution2: Using two pointer from start and end of array
-        
