@@ -20,6 +20,36 @@
 # -   需要注意的是 nex 数组在每次循环开始时初始化为空
 # -   比较容易疏忽的是返回时存Node的val而不是Node
 
+1/21/2010
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        
+        if not root:
+            return []
+        res = []
+        queue = collections.deque([root])
+        
+        while queue:
+            res.append([node.val for node in queue])
+            lenq = len(queue) #it's critical to get length as a variable, otherwise the length of queue would be dynamicly change while adding more nodes into it
+            for _ in range(lenq):
+                node = queue.popleft()
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        return res
 
 # solution1 - iterative, time complex: O(n) Space complex : O(1)
 class Solution(object):
