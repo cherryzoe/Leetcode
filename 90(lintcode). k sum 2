@@ -1,0 +1,43 @@
+Given n unique postive integers, number k (1<=k<=n) and target.
+
+Find all possible k integers where their sum is target.
+
+样例
+Example 1:
+
+Input: [1,2,3,4], k = 2, target = 5
+Output:  [[1,4],[2,3]]
+Example 2:
+
+Input: [1,3,4,6], k = 3, target = 8
+Output:  [[1,3,4]]
+
+class Solution:
+    """
+    @param: A: an integer array
+    @param: k: a postive integer <= length(A)
+    @param: targer: an integer
+    @return: A list of lists of integer
+    """
+    def kSumII(self, A, k, target):
+        # write your code here
+        A = sorted(A)
+        res = []
+        self.dfs(A, k, target, [], res)
+        return res
+        
+    def dfs(self, A, k, target, temp, res):
+        判断一下当K层都循环结束时，taget是否正好等于0， 是则返回答案，否则就停止往下做循环
+        if k == 0 and target == 0:
+            res.append(list(temp))
+            return 
+        
+        if k == 0 and target != 0:
+            return
+        
+        for i in range(len(A)):
+            if A[i] > target:
+                continue
+            temp.append(A[i])
+            self.dfs(A[i+1:], k-1, target-A[i], temp, res)
+            temp.pop()
