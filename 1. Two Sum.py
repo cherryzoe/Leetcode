@@ -7,6 +7,21 @@
 # Because nums[0] + nums[1] = 2 + 7 = 9,
 # return [0, 1].
  
+ 8/7/2020
+ class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        dic = {}
+        
+        for i,v in enumerate(nums):
+            t = target - v
+            if t in dic:
+                return [dic[t], i]
+            dic[v] = i
 
  1/17/2020
  class Solution(object):
