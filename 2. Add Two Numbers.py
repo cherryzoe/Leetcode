@@ -15,6 +15,34 @@
 #         self.val = x
 #         self.next = None
 
+8/7/2020
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        dummy = cur = ListNode(0)
+        carry = 0
+        
+        while l1 or l2 or carry:
+            if l1:
+                # in case l1 is not valid Node and through out exception
+                v1 = l1.val
+                l1 = l1.next
+            if l2:
+                v2 = l2.val
+                l2 = l2.next
+            carry = v1 + v2 + carry
+            # cur.next.val = carry % 10
+            cur.next = ListNode(carry % 10)
+            carry /= 10
+            cur = cur.next
+            v1 = v2 = 0
+        return dummy.next
+
+--------
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         """
