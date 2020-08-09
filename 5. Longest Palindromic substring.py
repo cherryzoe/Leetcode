@@ -1,14 +1,12 @@
-Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+# Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+# Example 1:
+# Input: "babad"
+# Output: "bab"
+# Note: "aba" is also a valid answer.
 
-Example 1:
-
-Input: "babad"
-Output: "bab"
-Note: "aba" is also a valid answer.
-Example 2:
-
-Input: "cbbd"
-Output: "bb"
+# Example 2:
+# Input: "cbbd"
+# Output: "bb"
 
 解题思路：
 字符串中每一个字符都有可能是回文串的中心轴，并且有两种可能 - 以此为轴的回文串是奇数和偶数两种情况。
