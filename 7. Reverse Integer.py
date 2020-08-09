@@ -30,7 +30,7 @@ class Solution(object):
             digit = x % 10
             res = res * 10 + digit
             x /= 10
-#         handle overflow issue
+#         handle overflow issue - 7fffffff is the maximum positive value for a 32-bit signed binary integer
         return res*flag if abs(res) < 0x7FFFFFFF else 0
         
   Solution2:
