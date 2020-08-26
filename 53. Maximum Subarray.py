@@ -3,7 +3,23 @@
 # For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
 # the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 
-
+Update on Aug 2020:
+    class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        res = -sys.maxint
+        subsum = 0
+        
+        for i in range(len(nums)):
+            subsum = max(subsum + nums[i], nums[i])
+            res = max(res, subsum)
+        return res
+    
+    
+    
 class Solution(object): (fast and O(n) space)
     def maxSubArray(self, nums):
         """
@@ -29,7 +45,7 @@ or
         return maxxi
  
 
- Solution2: DP with clean code (slow 52ms)
+Solution2: DP with clean code (slow 52ms)
 class Solution(object):
     def maxSubArray(self, nums):
         """
