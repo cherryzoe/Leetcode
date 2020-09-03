@@ -5,6 +5,38 @@
 # Note: 
 # You may assume k is always valid, 1 ≤ k ≤ array's length
 
+2020 Update:
+解题思路： 用快速排序，大的放左边，小的放右边，如果左边大的个数大于K，则说明第K大的数必定在左边，因此只需要对左边进行递归，右边可不用再看了
+   class Solution(object):
+    def quickSort(self, nums, l, r, k):
+        if l >= r:
+            return nums[k]
+        
+        pivot = nums[l]
+        i,j = l-1, r+1
+        while i < j:
+            i += 1
+            while nums[i] > pivot:
+                i += 1
+            j -= 1
+            while nums[j] < pivot:
+                j -= 1
+            if i < j:
+                nums[i], nums[j] = nums[j], nums[i]
+        if k <= j:
+            return self.quickSort(nums, l, j, k)
+        else:
+            return self.quickSort(nums, j+1, r, k)
+    
+    def findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        return self.quickSort(nums, 0, len(nums)-1, k-1)
+        
+
 #Idea: use quicksort
    def findKthLargest(self, nums, k):
             def partition(nums, left, right):
