@@ -16,6 +16,10 @@ class Solution(object):
         #        pre      cur
         # None <- head    a  ->
 
+#思路：每次3个节点一起看，prev, cur & nex, 每次操作把cur原本指向后继节点nex的指针cur.next改变成指向前一个节点prev。这一步以免丢失首先获取并保存到临时变量nex，然后反转cur节点。这里的nex是通过cur获取，真正的节点还是2个，因为第三个可以临时获取。
+#同时后移一步prev 和 cur，重复以上操作。这一步翻转了cur后面第一个节点。
+#重复以上步骤，直到cur指向Null（tail.next) 结束程序，至此完成所有节点的翻转。 
+#最后返回prev，此时cur已经指向None，而prev指向原来的tail也就是翻转后的head
 
         pre, cur = None, head       
         while cur:
