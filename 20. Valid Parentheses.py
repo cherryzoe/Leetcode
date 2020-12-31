@@ -10,6 +10,28 @@
 #   - 其他符号： 直接返false
 #  2. 用dictionary构造数据结构，存放左右括号，并且用value 与 keys 进行索引和关联 
  
+# 最后的判断条件是stack里面的元素全部配对成功，也就是stack为空
+ class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        left = {'(':')', '[':']', '{':'}'}
+        stack = []
+
+        for i in range(len(s)):
+            if s[i] in left:
+                stack.append(s[i])
+            else:
+                if not stack:
+                    return False
+                le = stack.pop()
+                if left[le] != s[i]:
+                    return False
+        return not stack 
+ 
+ 
 class Solution(object):
     def isValid(self, s):
         """
