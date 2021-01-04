@@ -9,6 +9,8 @@
 # Your algorithm should use only constant extra space.
 # You may not modify the values in the list's nodes, only nodes itself may be changed.
 
+# 每次看3个节点，pre->a->b，循环终止条件是当a或者b节点不存在时。这题需要画图，把反转后的画出来，思考指针变化的前后。
+# 用递归更加不容易出错。题解参考https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/hua-jie-suan-fa-24-liang-liang-jiao-huan-lian-biao/
 
 # Solution:
 class Solution(object):
