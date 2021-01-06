@@ -1,30 +1,26 @@
 
-Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+# Given the root of a binary tree, determine if it is a valid binary search tree (BST).
 
-A valid BST is defined as follows:
+# A valid BST is defined as follows:
 
-The left subtree of a node contains only nodes with keys less than the node's key.
-The right subtree of a node contains only nodes with keys greater than the node's key.
-Both the left and right subtrees must also be binary search trees.
+# The left subtree of a node contains only nodes with keys less than the node's key.
+# The right subtree of a node contains only nodes with keys greater than the node's key.
+# Both the left and right subtrees must also be binary search trees.
+
+# Example 1:
+
+# Input: root = [2,1,3]
+# Output: true
+# Example 2:
+
+# Input: root = [5,1,4,null,null,3,6]
+# Output: false
+# Explanation: The root node's value is 5 but its right child's value is 4.
  
+# Constraints:
 
-Example 1:
-
-
-Input: root = [2,1,3]
-Output: true
-Example 2:
-
-
-Input: root = [5,1,4,null,null,3,6]
-Output: false
-Explanation: The root node's value is 5 but its right child's value is 4.
- 
-
-Constraints:
-
-The number of nodes in the tree is in the range [1, 104].
--231 <= Node.val <= 231 - 1
+# The number of nodes in the tree is in the range [1, 104].
+# -231 <= Node.val <= 231 - 1
 
 解题思路：
 判断是否是binary search tree，需要满足左子树所有节点都小于root，右子树所有节点都大于root，当涉及到所有节点时，需用递归。
@@ -59,3 +55,27 @@ class Solution(object):
         self.inorder(root.left)
         self.res.append(root.val)
         self.inorder(root.right)
+
+解法2：
+空间复杂度降为O(1)：
+用变量pre记录前一个中序遍历到的节点，与当前节点比大小，如果是二叉搜索树，中序遍历应该是非递减的。
+
+class Solution(object):
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        self.pre = -sys.maxsize-1
+
+        def isBST(root):
+            if not root:
+                return True
+            if not isBST(root.left):
+                return False
+            if root.val <= self.pre:
+                return False
+            self.pre = root.val
+            return isBST(root.right)
+                
+        return isBST(root)
