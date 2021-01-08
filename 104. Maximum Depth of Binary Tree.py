@@ -36,3 +36,13 @@ class Solution(object):
             stack = nxLevel
             depth += 1
         return depth
+
+ #  DFS Solution:
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
