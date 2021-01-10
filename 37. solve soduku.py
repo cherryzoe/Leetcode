@@ -7,9 +7,11 @@
 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
 空白格用 '.' 表示。
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/sudoku-solver
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+解题思路：
+跟N皇后问题是一类
+先扫描一遍棋盘，把预设值都记录到全局变量row, col, cube中。
+用回溯方法，一个个试下去，如果一条路走到底，层层返回TRUE，那么就是答案，直接返回。 
+否则任何一层False，然后回到上一层，移除row, col, cube中的记录，并且棋盘重置成空，恢复现场
 
 class Solution(object):
     def solveSudoku(self, board):
