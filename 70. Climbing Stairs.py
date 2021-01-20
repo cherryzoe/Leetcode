@@ -27,6 +27,20 @@
 # tranfer formula: f(n) = f(n-1) + f(n-2)
 # initial state: f(1) = 1   f(2) = 2(two options to reach step 2: 1+1 or 2)
 
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+
+        dp = [1 for _ in range(n+1)]
+        if n >= 2:
+            dp[2] = 2
+            for i in range(2, n+1):
+                dp[i] = dp[i-1] + dp[i-2]
+        return dp[-1]
+
 # O(n) space
 class Solution(object):
     def climbStairs(self, n):
