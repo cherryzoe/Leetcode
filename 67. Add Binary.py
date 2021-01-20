@@ -5,6 +5,29 @@
 # b = "1"
 # Return "100".
 
+# 加法通用膜版-
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        res = ''
+        carry = 0
+        for i in range(1, max(len(a),len(b))+1):
+            temp = carry
+            if i <= len(a): #判断是否溢出字符串长度之前
+                temp += int(a[-i])
+            if i <= len(b):
+                temp += int(b[-i])
+            res = str(temp % 2) + res
+            carry = temp / 2
+        
+        if carry:
+            res = '1' + res
+            
+        return res
 
 class Solution(object):
     def addBinary(self, a, b):
