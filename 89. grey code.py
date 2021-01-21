@@ -41,8 +41,6 @@ class Solution(object):
         
         if n == 0:
             return 0
-        if n == 1:
-            return res
 
         for i in range(n-1):
             for j in range(len(res)-1, -1, -1):
