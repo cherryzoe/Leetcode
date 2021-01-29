@@ -20,7 +20,24 @@
 # Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
 # Output: false
 
+class Solution(object):
+    def wordBreak(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: bool
+        """
 
+        dp = [False for _ in range(len(s)+1)]
+        dp[0] = True
+       # dp[i]表示前i个字符符合被拆解要求  
+        for i in range(len(s)+1):
+            for j in range(i+1, len(s)+1):
+                if dp[i] and s[i:j] in wordDict:
+                    dp[j] = True
+            
+        return dp[-1]
+    
 class Solution(object):
     def wordBreak(self, s, wordDict):
         """
