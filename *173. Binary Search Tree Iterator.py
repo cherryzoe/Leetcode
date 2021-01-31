@@ -4,6 +4,10 @@
 
 # Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
 
+解题思路：
+这题我第一次想到的是，根据二叉搜索树的特性，用中序遍历得到的是递增数组，只要用指针指向数组既可以得到next()，判断指针是否指向末尾判断hasnext().
+以上的空间复杂的是O（N)，而题目要求O(h)，因此需要优化 - 每次只存左边路径上的节点，通过stack来不断拿出节点，根据出来的节点进一步顺藤摸瓜找到他们的右边子树的左路径。
+这样存储空间可以控制到O(H)，因为我不是把每个节点都同时存进来的，只是存一部分，pop出去后再存下面的
 
 # Tips:
 # 本题相当于考察了BST的非递归中序遍历
