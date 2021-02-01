@@ -1,18 +1,22 @@
-输入：
-["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
-[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
-输出：
-[null,null,null,null,false,true,true,true]
+# 输入：
+# ["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
+# [[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
+# 输出：
+# [null,null,null,null,false,true,true,true]
 
-解释：
-WordDictionary wordDictionary = new WordDictionary();
-wordDictionary.addWord("bad");
-wordDictionary.addWord("dad");
-wordDictionary.addWord("mad");
-wordDictionary.search("pad"); // return False
-wordDictionary.search("bad"); // return True
-wordDictionary.search(".ad"); // return True
-wordDictionary.search("b.."); // return True
+# 解释：
+# WordDictionary wordDictionary = new WordDictionary();
+# wordDictionary.addWord("bad");
+# wordDictionary.addWord("dad");
+# wordDictionary.addWord("mad");
+# wordDictionary.search("pad"); // return False
+# wordDictionary.search("bad"); // return True
+# wordDictionary.search(".ad"); // return True
+# wordDictionary.search("b.."); // return True
+
+# 解题思路：
+# 用字典树的数据结构
+# 如果是'.'的情况，需要遍历到当前节点所有child
 
 class trieNode(object):
 
