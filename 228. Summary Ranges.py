@@ -20,6 +20,28 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[str]
         """
+        if not nums:
+            return []
+        res = []
+        i,j = 0,0
+        while j < len(nums):
+            while j+1<len(nums) and nums[j+1] == nums[j]+1:
+                j += 1
+            if i != j:
+                res.append(str(nums[i]) + '->' + str(nums[j]))
+            else:
+                res.append(str(nums[j]))
+            j += 1
+            i = j
+        return res
+
+
+class Solution(object):
+    def summaryRanges(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[str]
+        """
         res = []
         start = end = 0
         r = ''
