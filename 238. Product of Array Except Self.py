@@ -16,6 +16,9 @@
 # 然后两个数组一一对应相乘，即可得到最终结果 [a2*a3*a4, a1*a3*a4, a1*a2*a4, a1*a2*a3]。
 # 不过，上述方法的空间复杂度为O(n)，可以进一步优化成常数空间，即用一个整数代替第二个数组。
 
+# 乘积 = 当前数左边的乘积 * 当前数右边的乘积
+
+
 # Solution1: O(n) space
 class Solution(object):
     def productExceptSelf(self, nums):
