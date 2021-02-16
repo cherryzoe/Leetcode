@@ -9,6 +9,22 @@ Example 2:
 Input: [[7,10],[2,4]]
 Output: true
 
+不用额外定义class
+class Solution(object):
+    def canAttendMeetings(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: bool
+        """
+
+        intervals = sorted(intervals, key = lambda x:x[0])
+
+        for i in range(1, len(intervals)):
+            if intervals[i][0] < intervals[i-1][1]:
+                return False
+        return True
+
+    
 # Definition for an interval.
 # class Interval(object):
 #     def __init__(self, s=0, e=0):
