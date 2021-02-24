@@ -17,6 +17,29 @@
 # Explanation: The answer is "wke", with the length of 3. 
 #              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        lookup = set()
+        start = 0
+        res = 0
+
+        for end in range(len(s)):
+            end_s = s[end]
+            
+            while end_s in lookup:    
+                start_s = s[start]
+                if start_s in lookup:
+                    lookup.remove(start_s)
+                start += 1
+
+            res = max(res, end - start + 1)
+            lookup.add(end_s)
+        return res
+
 解题思路：
 - 滑动窗口， 
 - 用字典记录窗口内每个字符出现的次数，记录当前的字符长度
