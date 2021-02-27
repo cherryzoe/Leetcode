@@ -9,10 +9,31 @@
 # 6^2 + 8^2 = 100
 # 1^2 + 0^2 + 0^2 = 1
 
-有两种情况
-- 一旦到达1往下的值一直保持在1.
-- 循环一直往复，过程中从未出现结果为1
-因此出while的时候就是slow = fast的情况，判断是上面那种即可
+# 解题思路 - 用快慢指针快速判断环
+# 分两种情况
+# - 一旦到达1往下的值一直保持在1.快慢指针都会停在1
+# - 循环一直往复，过程中从未出现结果为1。这种情况下快慢指针会相遇在中间非1的点
+# 因此出while的时候就是slow = fast的情况，判断是上面那种即可
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        fast, slow = self.find_square_sum(n), n
+
+        while fast != slow:
+            fast = self.find_square_sum(self.find_square_sum(fast))
+            slow = self.find_square_sum(slow) 
+        return slow == 1
+
+    def find_square_sum(self, n):
+        res = 0
+        while n:
+            digit = n%10
+            res += digit * digit
+            n /= 10
+        return res 
 
 # Idea:
 # there are two way to get out of loop:
