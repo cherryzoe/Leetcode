@@ -27,13 +27,11 @@ class Solution(object):
         depth = 0
         stack = [root]
         while stack:
-            nxLevel = []
             for node in stack: 
                 if node.right:
                     nxLevel.append(node.right)
                 if node.left:
                     nxLevel.append(node.left)         
-            stack = nxLevel
             depth += 1
         return depth
 
