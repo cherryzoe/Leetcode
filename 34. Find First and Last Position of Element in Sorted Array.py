@@ -14,6 +14,37 @@
 # Output: [-1,-1]
 
 class Solution(object):
+    def searchRange(self, nums, target):     
+
+        l,r = 0, len(nums)-1
+        while l <= r:
+            m = l + (r-l)/2
+            #继续找左边界
+            if nums[m] == target:
+                r = m - 1
+            elif nums[m] < target:
+                l = m + 1
+            else:
+                r = m - 1
+        if l >= len(nums) or nums[l] != target:
+            return [-1, -1]
+        else:
+            start = l
+
+        l,r = 0, len(nums)-1
+        while l <= r:
+            m = l + (r-l)/2
+            #继续找右边界
+            if nums[m] == target:
+                l = m + 1
+            elif nums[m] > target:
+                r = m - 1
+            else:
+                l = m + 1
+        end = r 
+        return [start, end]
+
+class Solution(object):
     def searchRange(self, nums, target):
         """
         :type nums: List[int]
