@@ -16,6 +16,36 @@
 # #         self.val = x
 # #         self.next = None
 
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+
+        minHeap = []
+        dummy = ListNode(0)
+        head = dummy
+        # 取各个链表的头节点，存入最小堆。按照元组第一个元素大小排序 - node.val
+        for node in lists:
+            if node:
+                heapq.heappush(minHeap, (node.val, node))
+        
+        while minHeap:
+            val, node = heapq.heappop(minHeap)
+            head.next = node
+            head = head.next 
+            if node.next:
+                heapq.heappush(minHeap, (node.next.val, node.next))
+        return dummy.next
+
+    
 from Queue import PriorityQueue
 class Solution(object):
     def mergeKLists(self, lists):
