@@ -22,6 +22,42 @@ class Solution(object):
         :type x: int
         :rtype: List[int]
         """
+        heap = []
+        res = []
+        index = self.binarSearch(arr, x)
+        left = max(0, index-k)
+        right = min(index + k, len(arr)-1)
+        
+        for i in range(left, right+1):
+            heapq.heappush(heap, (abs(arr[i] - x), arr[i]))
+
+        for j in range(k):
+            res.append(heapq.heappop(heap)[1])
+        res.sort()
+        return res
+
+    def binarSearch(self, arr, x):
+        l, r = 0, len(arr)-1
+        while l <= r:
+            m = l + (r-l)/2
+            if arr[m] == x:
+                return m
+            elif arr[m] > x:
+                r = m - 1
+            else:
+                l = m + 1
+        if l > 0:
+            return l - 1
+        return l
+
+class Solution(object):
+    def findClosestElements(self, arr, k, x):
+        """
+        :type arr: List[int]
+        :type k: int
+        :type x: int
+        :rtype: List[int]
+        """
         if not arr:
             return -1
         
