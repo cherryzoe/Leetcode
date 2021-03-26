@@ -32,6 +32,7 @@ Output: 2
             #可以与之前的前缀和相减得到K
             if presum - k in dic:
                 cnt += dic[presum-k]
+            #结束判断后，再把当前的presum加入字典，否则 presum-k == presum 的这种情况就会重复判断到自己
             if presum not in dic:
                 dic[presum] = 1
             else:
