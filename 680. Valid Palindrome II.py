@@ -13,7 +13,25 @@
 # 那么当遇到不匹配的时候，我们到底是删除左边的字符，还是右边的字符呢，我们的做法是两种情况都要算一遍，只要有一种能返回true，那么结果就返回true。
 # 我们可以写一个子函数来判断字符串中的某一个范围内的子字符串是否为回文串，
 
-1/18/2020
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        i, j = 0, len(s)-1
+        while i <= j:
+            if s[i] == s[j]:
+                i += 1
+                j -= 1
+            else:
+                return self.palidrome(s[i+1:j+1]) or self.palidrome(s[i:j])
+        return True 
+
+    def palidrome(self,s):
+        return s == s[::-1]
+    
+# 1/18/2020
 class Solution(object):
     def validPalindrome(self, s):
         """
