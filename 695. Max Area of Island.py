@@ -39,10 +39,10 @@ class Solution(object):
         if row < 0 or row >= len(grid) or col < 0 or col >= len(grid[0]):
             return 0
         # visted or not island 
-        if grid[row][col] == 0:
+        if grid[row][col] != 1:
             return 0
-        # current grid is 1, we set it to 0 as visited and explor its 4 directions
-        grid[row][col] = 0
+        # current grid is 1, we set it to 2 as visited and explore its 4 directions
+        grid[row][col] = 2
         d1 = self.dfs(grid, row + 1, col)
         d2 = self.dfs(grid, row-1, col) 
         d3 = self.dfs(grid, row, col+1) 
