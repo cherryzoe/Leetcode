@@ -21,6 +21,35 @@
 # 思路
 # 我们遍历矩阵的每一个点，对每个点都尝试进行一次深度优先搜索，如果搜索到1，就继续向它的四周搜索。
 # 同时我们每找到一个1，就将其标为0，这样就能把整个岛屿变成0。我们只要记录对矩阵遍历时能进入多少次搜索，就代表有多少个岛屿。
+
+class Solution(object):
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        cnt = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == '1':
+                    self.dfs(grid, i, j)
+                    cnt += 1
+        return cnt 
+    
+    def dfs(self, grid, r, c):
+#       越界或者不是‘1’的情况，返回
+        if r < 0 or r >= len(grid) or c < 0 or c >= len(grid[0]):
+            return 
+        if grid[r][c] == '0':
+            return 
+#       当前grid为‘1’的情况 - 设为‘0’避免重复visit， 然后探索4个方向
+        grid[r][c] = '0'
+        self.dfs(grid, r+1, c)
+        self.dfs(grid, r-1, c)
+        self.dfs(grid, r, c-1)
+        self.dfs(grid, r ,c+1)
+        
+
 class Solution(object):
     def numIslands(self, grid):
         """
