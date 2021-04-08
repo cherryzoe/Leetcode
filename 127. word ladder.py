@@ -34,7 +34,61 @@
 
 # solution 1: BFS 
 # Note: 务必将给定的wordList转成字典/SET，再查询，可大大降低查询速度
+class Solution(object):
+    def ladderLength(self, beginWord, endWord, wordList):
+        """
+        :type beginWord: str
+        :type endWord: str
+        :type wordList: List[str]
+        :rtype: int
+        """
+        visited = set()
+        wordList = set(wordList)
+        q =  collections.deque()
+        q.append((beginWord, 1))
 
+        while q:
+            word, level = q.popleft()
+            if word == endWord:
+                return level
+            for i in range(len(word)):
+                for j in range(26):
+                    neighbor = word[:i] + chr(ord('a')+j) + word[i+1:]
+                    if neighbor in wordList and neighbor not in visited:
+                        visited.add(neighbor)
+                        q.append((neighbor, level+1))
+        return 0
+
+解法2： 双向BFS
+        wordList = set(wordList)
+        if endWord not in wordList:
+            return 0
+        lq,rq,lvisted,rvisted = collections.deque(), collections.deque(), set(), set()
+        lq.append(beginWord)
+        rq.append(endWord)
+        lvisted.add(beginWord)
+        rvisted.add(endWord)
+        level = 0
+
+        while lq and rq:
+            if len(lq) > len(rq):
+                lq, rq = rq, lq
+                lvisted, rvisted = rvisted, lvisted
+            level += 1
+            for _ in range(len(lq)):
+                word = lq.popleft()
+                if word in rvisted:
+                    return level
+                for i in range(len(word)):
+                    for j in range(26):
+                        neighbor = word[:i] + chr(97+j) + word[i+1:]
+                        if neighbor in wordList and neighbor not in lvisted:
+                            lq.append(neighbor)
+                            lvisted.add(neighbor)
+        return 0
+                
+        
+        
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordList):
         """
