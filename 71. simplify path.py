@@ -42,14 +42,15 @@ class Solution(object):
         :type path: str
         :rtype: str
         """
-
         path = path.split('/')
         stack = []
 
-        for item in path:
-            if item == '..':
-                stack.pop()
+        for i in path:
+            if i == '.' or i == '':
+                continue
+            if i == '..':
+                if stack:
+                    stack.pop()
             else:
-                if item != '.' and item != '':
-                    stack.append(item)
+                stack.append(i)
         return '/' + '/'.join(stack)
