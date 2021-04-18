@@ -55,3 +55,56 @@ class Solution(object):
                 else:
                     right = mid - 1
         return False
+
+#  Better solution 
+class Solution(object):
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: bool
+        """
+
+        # 1. find the roation point 
+        rt = 0
+        l, r = 0, len(nums)-1
+        # 去除重复，并且重新定义nums数组 - 很关键
+        while l < r and nums[0] == nums[r]:
+            r -= 1
+        nums = nums[:r+1]
+
+        # 找出转折点rt - 左半边递增区间最后一个值
+        while l <= r:
+            m = l +(r-l)/2
+            if nums[m] == target:
+                return True
+            if m < len(nums)-1 and nums[m] >= nums[0] and nums[m] > nums[m+1]:
+                rt = m
+                break
+            if nums[m] >= nums[0]:
+                l = m + 1
+            else:
+                r = m -1
+        # 2. 判断是否有转折 - 如果有转折点，上面while循环出来的时候l,r应该没有交叉。当遍历完所有节点未发现转折点，
+        # 出循环的时候l,r一定是相交叉的
+        if l > r:
+            l,r = 0, len(nums)-1
+        else:
+            # 判断target在转折点前或者后,去相应的单调区间查找
+            if target == nums[0]:
+                return True
+            # 重新分配l, r的起始位置，万不可以偷懒继承之前的位置，出错点
+            elif target > nums[0]:
+                l, r = 0, rt
+            else:
+                l, r = rt+1, len(nums)-1
+        # 3. 相应区间查找
+        while l <= r:
+            m = l + (r-l)/2
+            if nums[m] == target:
+                return True
+            if nums[m] > target:
+                r = m -1
+            else:
+                l = m + 1
+        return False
