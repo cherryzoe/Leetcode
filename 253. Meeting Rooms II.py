@@ -51,3 +51,17 @@ class Solution(object):
                 j += 1
             res = max(res,rm)
         return res
+
+#     solution with heap
+    import heapq
+        intervals.sort(key = lambda k:k[0])
+        room = [intervals[0][1]]
+        res = 1
+        for i in range(1, len(intervals)):
+            # when next meeting starts, check if there is meetings ended already in the heap.
+            # for those completed meeting, we pop them out and free up its meeting room for the next meeting
+            while room and intervals[i][0] >= room[0]:
+                heapq.heappop(room)
+            heapq.heappush(room, intervals[i][1])
+            res = max(res, len(room))
+        return res
