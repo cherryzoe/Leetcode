@@ -11,7 +11,24 @@
 # ]
 
 4/19/2021
+class Solution(object):
+    def generateParenthesis(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        self.res = []
+        self.dfs(0, 0, n, '')
+        return self.res 
 
+    def dfs(self, l, r, n, path):
+        if l == n and r == n:
+            self.res.append(path)
+        
+        if l < n:
+            self.dfs(l+1, r, n, path + '(')
+        if l > r and r < n:
+            self.dfs(l, r+1, n, path + ')')
 
 
 思路：
