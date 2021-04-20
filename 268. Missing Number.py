@@ -8,6 +8,26 @@
 
 # be careful that return type is int not set or list
 
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # circulate sort - val == idx
+        cur = 0
+        while cur < len(nums):
+            nex = nums[cur]
+            if nex < len(nums) and nums[nex] != nums[cur]:
+                nums[nex], nums[cur] = nums[cur], nums[nex]
+            else:
+                cur += 1
+        
+        for i in range(len(nums)):
+            if i != nums[i]:
+                return i
+        return len(nums)
+
 upate on 12/10/2017
 
 solution 2:
