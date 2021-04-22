@@ -13,6 +13,34 @@
 # Note:
 # The input string length won't exceed 1000.
 
+# 4/21/2021
+class Solution(object):
+    def countSubstrings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        dp = [[False] * len(s) for _ in range(len(s))]
+        cnt = 0
+        for i in range(len(s)):
+            for j in range(i+1):
+                # i j 重合，一个字符时‘a'这种情况是回文
+                if i==j:
+                    dp[j][i] = True 
+                    cnt += 1
+                # aa这种情况
+                elif i-j == 1 and s[i] == s[j]:
+                    dp[j][i] = True
+                    cnt += 1
+                else:
+                # a-bcb-a这种情况
+                    # i-j中间有2个以上字符时，当两头字符相同且剩下中间部分也为回文时，i-j为回文
+                    if s[i] == s[j] and dp[j+1][i-1]: 
+                        dp[j][i] = True
+                        cnt += 1
+        return cnt
+    
+
 # idea: Step 1: Start a for loop to point at every single character from where we will trace the palindrome string.
 # checkPalindrome(s,i,i); //To check the palindrome of odd length palindromic sub-string
 # checkPalindrome(s,i,i+1); //To check the palindrome of even length palindromic sub-string
