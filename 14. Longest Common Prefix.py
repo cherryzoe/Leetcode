@@ -1,5 +1,28 @@
 # Write a function to find the longest common prefix string amongst an array of strings.
 
+update on 4/24/2021
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        # 取第一个字符串作为基准，跟其他的一一比较
+        res = strs[0]
+        for i in range(1, len(strs)):
+            l1 = len(res)
+            l2 = len(strs[i])
+            j = 0
+            # 循环体内符合条件，不断增加
+            while j < min(l1, l2) and res[j] == strs[i][j]:
+                j += 1
+            # 出循环体，更新并判断 - 越界或者不等
+            res = res[:j]
+            if not res:
+                return ''
+        return res
+
+
 # 解题思路：
 # 1. 找出最短的字符串，作为标准去跟其他的字符串比较。 
 # 2. 如果最短字符串长度为0，则结果为空。
