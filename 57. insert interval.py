@@ -12,6 +12,10 @@
 输出：[[1,2],[3,10],[12,16]]
 解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10] 重叠。
 
+# 用newInterval的左右边界，不断跟每一个interval左右边界进行比较，观察是否有重合
+# 1-如果没有重合，把interval直接加入结果
+# 2-有重合，对所有与newInterval有重合的interval，整合左右边界，左边取最左最小，右边取最右最大，得到一个大区间，并加入结果
+
 class Solution(object):
     def insert(self, intervals, newInterval):
         """
