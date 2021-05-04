@@ -28,6 +28,47 @@
 # The substring with start index = 1 is "ba", which is an anagram of "ab".
 # The substring with start index = 2 is "ab", which is an anagram of "ab".
 
+# 5/4/2021
+class Solution(object):
+    def findAnagrams(self, s, p):
+        """
+        :type s: str
+        :type p: str
+        :rtype: List[int]
+        """
+        lists = list(s)
+        listp = list(p)
+        res = []
+        cntp = {}
+        for i in listp:
+            cntp[i] =  cntp.get(i,0) + 1
+
+        left = 0
+        cnt = {}
+        for right in range(len(lists)):
+            cur = lists[right]
+
+            # skip to the next element if current not in target scope
+            if cur not in cntp:
+                left = right + 1
+                cnt = {}
+                continue
+
+            cnt[cur] = cnt.get(cur, 0) + 1
+
+            # pop out left elements unitl total# current element falls into target scope counts
+            while cnt[cur] > cntp.get(cur,0):
+                cnt[lists[left]] -= 1
+                left += 1
+
+            # As logn as there is extra elements, they are being popped out from previous steps, 
+            # If elements in current window is exact target length, then it's anagrams of p
+            if right - left + 1 == len(listp):
+                res.append(left)
+        return res 
+
+
+
 #Sliding window solution. Add one element in right edge and discard one element in left edge, then compare
 #If use another inner loop, with time exceed limit
 class Solution(object):
