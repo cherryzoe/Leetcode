@@ -36,6 +36,7 @@ class Solution(object):
         return depth
 
  #  DFS Solution:
+# 1.divide and conquer
     def maxDepth(self, root):
         """
         :type root: TreeNode
@@ -44,3 +45,21 @@ class Solution(object):
         if not root:
             return 0
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+    
+#    2. traverse
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        self.maxDepth = 0
+        self.dfs(root, 1)
+        return self.maxDepth
+
+    def dfs(self, root, depth):
+        if not root:
+            return 
+        self.maxDepth = max(self.maxDepth, depth)
+        l = self.dfs(root.left, depth + 1)
+        r = self.dfs(root.right, depth + 1)
