@@ -1,6 +1,7 @@
 
 # 判断每个班级的潜力值 = 加上一个优等生后的通过率-现在的通过率
 # 用最小堆存放 （潜力值（负值），x,y)，每次取出的堆顶元素，即潜力最大的班级，给他分配一个优等生，重新计算潜力值，再重新加入堆中
+# 注意 - 每次除法的分母都需要加float 否则就变成四舍五入的结果了
 class Solution(object):
     def maxAverageRatio(self, classes, extraStudents):
         """
