@@ -1,3 +1,25 @@
+
+class Solution(object):
+    def maximumUnits(self, boxTypes, truckSize):
+        """
+        :type boxTypes: List[List[int]]
+        :type truckSize: int
+        :rtype: int
+        """
+#       sort input array by its units number from high to low. we want to load boxes with more units first.
+        boxTypes = sorted(boxTypes, key = lambda x:x[1], reverse = True)
+        res = 0
+        remain_box = truckSize
+
+        for i in boxTypes:
+            box, unit = i[0], i[1]
+            box = min(box, remain_box)
+            res += unit * box
+            remain_box -= box
+            if remain_box == 0:
+                break
+        return res 
+
 class Solution(object):
     def maximumUnits(self, boxTypes, truckSize):
         """
