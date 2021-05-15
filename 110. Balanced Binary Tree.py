@@ -9,6 +9,51 @@
 - 如果左右子树都是平衡的，但左右子树相差高度大于1，此刻这课树又是不平衡的
 - 问题转化为分别对左右子树求maxDepth，平衡就返回最大深度，不平衡就返回-1
 - 技巧：用-1表示它不是一颗平衡二叉树
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+5/15/2021
+'''
+example
+1
+2 3
+4
+5
+for above case, 1 is the root of whole tree, it has left tree [2,4,5] and right tree [3]
+for 1, its height is the 1 + max(left/3, right/1) => left in this case. 
+I see that left - right = 2 > 1, in other word, it's unbalanced.
+
+Our approach here is to travsers throught the tree for each node and check if its subtree balanced or not
+once there is one unbalanced subtree, the whole tree is unblanace
+after all nodes checked and no subtree is unbalanced, we would say the whole is balanced
+'''
+class Solution(object):
+    def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        self.balance = True
+        self.checkHeight(root)
+        return self.balance
+
+    def checkHeight(self, root):
+        # termination condition
+        if not root:
+            return 0
+        # recursion
+        l = self.checkHeight(root.left)
+        r = self.checkHeight(root.right)
+        # check every node if their subtree is balanced or not. 
+        # once there is unbalanced, the whole tree is unbalanced
+        if abs(l-r) > 1:
+            self.balance = False
+        # return 
+        return 1+max(l, r)
 
 
 # Definition for a binary tree node.
