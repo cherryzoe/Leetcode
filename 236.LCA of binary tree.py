@@ -77,7 +77,53 @@ class Solution(object):
         # only r returns value => p and q both in right, LCA must be in right, return right
         if r:
             return r 
+
+         
+'''
+升级版
+------
+如果题目中p,q有可能不在数中，用以下代码
+this code applies to situation when p and q are not in the tree
+when we say p exist in the tree, we check and return True 
+if p in left subtree
+or p in right subtree
+or p is the root node
+
+assume at node X, and its left and right both return true for the first time(travserse buttom up)
+X is the lowest common ancester 
+'''
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        self.res = None 
+        # a/b - boolean value represent if p/q exist in the subtree or not 
+        a, b = self.checkExist(root, p, q)
+        if a and b:#when both p and q exist in the tree, return LCA. otherwise return None
+            return self.res
+        return None
         
+    def checkExist(self, root, p, q):
+        if not root:
+            return False, False
+        
+        a_l, b_l = self.checkExist(root.left, p, q)
+        a_r, b_r = self.checkExist(root.right, p, q)
+        # check if a/b exist in the subtree(of which root is root.left), if yes, return true
+
+        # check a subtree with root as its root, if exists in its left tree or right tree or is the root node
+        a = a_l or a_r or root == p
+        b = b_l or b_r or root == q
+
+        # when both a and b return True for the first time, when res has not been set yet, root is our reult
+        if a and b and self.res == None:
+            self.res = root
+        # return boolean(if a exist in the tree, if b exists in the tree)
+        return a, b       
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
