@@ -82,7 +82,7 @@ class Solution(object):
 '''
 升级版
 ------
-如果题目中p,q有可能不在数中，用以下代码
+如果题目中p,q有可能不在树中，用以下代码
 this code applies to situation when p and q are not in the tree
 when we say p exist in the tree, we check and return True 
 if p in left subtree
