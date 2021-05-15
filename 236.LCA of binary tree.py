@@ -6,7 +6,10 @@
 # Output: 3
 # Explanation: The LCA of nodes 5 and 1 is 3.
 
-# 这道求二叉树的最小共同父节点的题是之前那道 Lowest Common Ancestor of a Binary Search Tree 的 Follow Up。跟之前那题不同的地方是，这道题是普通是二叉树，不是二叉搜索树，所以就不能利用其特有的性质，我们只能在二叉树中来搜索p和q，然后从路径中找到最后一个相同的节点即为父节点，可以用递归来实现，在递归函数中，首先看当前结点是否为空，若为空则直接返回空，若为p或q中的任意一个，也直接返回当前结点。否则的话就对其左右子结点分别调用递归函数，由于这道题限制了p和q一定都在二叉树中存在，那么如果当前结点不等于p或q，p和q要么分别位于左右子树中，要么同时位于左子树，或者同时位于右子树，那么我们分别来讨论：
+# 这道求二叉树的最小共同父节点的题是之前那道 Lowest Common Ancestor of a Binary Search Tree 的 Follow Up。跟之前那题不同的地方是，
+# 这道题是普通是二叉树，不是二叉搜索树，所以就不能利用其特有的性质，我们只能在二叉树中来搜索p和q，然后从路径中找到最后一个相同的节点即为父节点，可以用递归来实现，
+# 在递归函数中，首先看当前结点是否为空，若为空则直接返回空，若为p或q中的任意一个，也直接返回当前结点。否则的话就对其左右子结点分别调用递归函数，
+# 由于这道题限制了p和q一定都在二叉树中存在，那么如果当前结点不等于p或q，p和q要么分别位于左右子树中，要么同时位于左子树，或者同时位于右子树，那么我们分别来讨论：
 
 # - 若p和q分别位于左右子树中，那么对左右子结点调用递归函数，会分别返回p和q结点的位置，而当前结点正好就是p和q的最小共同父结点，直接返回当前结点即可，这就是题目中的例子1的情况。
 
@@ -30,7 +33,51 @@
 # p,qp,q 两节点都在 rootroot 的 右子树 中，此时的 rightright 指向 最近公共祖先节点 ；
 # 当 leftleft 不为空 ， rightright 为空 ：与情况 3. 同理；
 
+'''
+ 
+Traverse through the tree
+once matched the node.val == p/q.val, return the node
+For each node in the tree, check return vlaue from both left and right
 
+e.g. example 1
+for node 3, 
+its left tree return 5 as node p=5 exists in left Tree
+its right tree return 1 as node q=1 exists in right tree
+when left and right both return valid node => 3 is the LCA of p and q
+
+e.g. example 2
+when p and q exist in same subtree, and p is root of the tree => p is LCA of p and q
+'''
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        if not root:
+            return None 
+        
+        if root == p or root == q:
+            return root
+        
+        l = self.lowestCommonAncestor(root.left, p, q)
+        r = self.lowestCommonAncestor(root.right, p, q)
+        # if l == None: left subtree has no p or q
+        # if r == None: right subtree has no p or q
+
+        # p and q exist seperatly in left and right subtree => current node is the LCA of p and q
+        if l and r:
+            return root 
+        
+        # only l returns value => p and q both in left, LCA must be in left, return left
+        if l: 
+            return l 
+        # only r returns value => p and q both in right, LCA must be in right, return right
+        if r:
+            return r 
+        
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
