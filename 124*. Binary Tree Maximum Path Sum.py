@@ -44,7 +44,36 @@ node有两种选择：
                          而我们返回值是取left和right中的较大值加上当前结点值，因为我们返回值的定义是以当前结点为终点的path之和，所以只能取left和right中较大的那个值，而不是两个都要，
                          参见代码如下
                          
+
+                         
 class Solution(object):
+    def maxPathSum(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        self.maxPath = -sys.maxsize
+        self.dfs(root)
+        return self.maxPath
+
+    def dfs(self, root):
+        if not root:
+            return 0
+        
+        l = self.dfs(root.left)
+        r = self.dfs(root.right)
+        
+        # checking all possible paths passing p and save the max path sum
+        self.maxPath = max(self.maxPath, root.val)
+        self.maxPath = max(self.maxPath, root.val + l)
+        self.maxPath = max(self.maxPath, root.val + r)
+        self.maxPath = max(self.maxPath, root.val + l + r)
+
+        return root.val + max(max(l, r), 0)
+
+
+                         
+                         class Solution(object):
     def maxPathSum(self, root):
         """
         :type root: TreeNode
