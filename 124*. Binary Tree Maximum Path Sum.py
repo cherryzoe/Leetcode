@@ -68,12 +68,14 @@ class Solution(object):
         self.maxPath = max(self.maxPath, root.val + l)
         self.maxPath = max(self.maxPath, root.val + r)
         self.maxPath = max(self.maxPath, root.val + l + r)
+       #  我们也可以把上面4个替换成下面这一句                 
+        self.maxPath = max(self.maxPath, max(l, 0) + max(r,0) + root.val)
 
         return root.val + max(max(l, r), 0)
 
 
                          
-                         class Solution(object):
+ class Solution(object):
     def maxPathSum(self, root):
         """
         :type root: TreeNode
