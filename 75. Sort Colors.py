@@ -33,3 +33,39 @@ class Solution(object):
             else:
                 p += 1
         return nums
+
+
+    class Solution(object):
+
+    '''
+    Quicksort O(2n)
+    pick 1 as pivot, iterate through the input array, 
+    partition in the way everything less than pivot will be swap to the left. 
+    with that we get a intermediate result with all 0s in left, mixed of 1s and 2s in right
+
+    next, pick 2 as pivot and repeat same
+    this time we will swap all 1s to the left of 2s, while 0s stays same
+
+    [2,0,2,1,1,0]  
+    output pivot = 1:    0,0,2,1,1,2
+    output pivot = 2:    0,0,[l]2,1,[r]1,2 => 0,0,1,1,2,2
+    '''
+
+    def sortColors(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        self.partition(nums, 1)
+        self.partition(nums, 2)
+        return nums
+
+    def partition(self, nums, pivot):
+        l, r = 0, len(nums)-1
+        while l <= r:
+            while l <= r and nums[l] < pivot:
+                l += 1
+            while l <= r and nums[r] >= pivot:
+                r -= 1
+            if l <= r:
+                nums[l], nums[r] = nums[r], nums[l]
