@@ -5,6 +5,54 @@
 # Note: 
 # You may assume k is always valid, 1 ≤ k ≤ array's length
 
+2021 Update:
+   class Solution(object):
+    def findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        return self.quickSort(nums, 0, len(nums)-1, k)
+
+    def quickSort(self, nums, left, right, k):
+        if left >= right:
+            return nums[left]
+        
+        i, j  = left, right
+        pivot = nums[random.randint(left, right)]
+        while i <= j:
+   
+            while i <= j and  nums[i] > pivot:
+                i += 1
+            while i <= j and  nums[j] < pivot:
+                j -= 1
+            if i <= j:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+                j -= 1
+        
+        if  k-1 <= j:
+            return self.quickSort(nums, left, j, k)
+        else:
+            return self.quickSort(nums, j+1, right, k)
+
+Heap solution:
+        heap = []
+        for n in nums:
+            heapq.heappush(heap, n)
+            if len(heap) > k:
+                heapq.heappop(heap)
+
+            # if len(heap) < k:
+            #     heapq.heappush(heap, n)
+            # else:
+            #     top = heap[0]
+            #     if n > top:
+            #         heapq.heappop(heap)
+            #         heapq.heappush(heap, n)
+        return heap[0]
+
 2020 Update:
 解题思路： 用快速排序，大的放左边，小的放右边，如果左边大的个数大于K，则说明第K大的数必定在左边，因此只需要对左边进行递归，右边可不用再看了
    class Solution(object):
