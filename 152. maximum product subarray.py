@@ -11,8 +11,30 @@
 输出: 0
 解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。
 
-解题思路：
 
+O(1) space 
+O(n) time
+class Solution(object):
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        res = nums[0]
+        pre_max = nums[0]
+        pre_min = nums[0]
+        for i in range(1, len(nums)):
+            cur_max = max(pre_max * nums[i], pre_min * nums[i], nums[i])
+            cur_min = min(pre_max * nums[i], pre_min * nums[i], nums[i])
+            res = max(res, cur_max)
+            pre_max = cur_max
+            pre_min = cur_min
+        return res 
+
+
+解题思路：  
 维护正最大和负最小的数组，dp[i]指考虑当前nums[i]的最大和最小结果
 
 遍历一遍数组，每个元素有两种情况：
