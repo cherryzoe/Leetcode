@@ -41,7 +41,28 @@ class Solution(object):
         
         dfs(nums, 0, [])
         return res 
+    
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
 
+        def dfs(nums, index, cur):
+            if index == len(nums):
+                res.append(cur[:]) # deep copy
+                return 
+            
+            # take new element and continue the path down
+            dfs(nums, index + 1, cur + [nums[index]])
+
+            # not taking new element and continue the path down
+            dfs(nums, index + 1, cur)
+        
+        dfs(nums, 0, [])
+        return res 
 # solution1: Iteration
 
 # 我们可以一位一位的网上叠加，比如对于题目中给的例子[1,2,3]来说，最开始是空集，那么我们现在要处理1，就在空集上加1，为[1]，
