@@ -17,6 +17,30 @@
 #   []
 # ]
 
+update 2021: 
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+
+        def dfs(nums, index, cur):
+            if index == len(nums):
+                res.append(cur[:]) # deep copy
+                return 
+            
+            # take new element and continue the path down
+            cur.append([nums[index]])
+            dfs(nums, index + 1, cur)
+
+            # not taking new element and continue the path down
+            cur.pop() # back tracking
+            dfs(nums, index + 1, cur)
+        
+        dfs(nums, 0, [])
+        return res 
 
 # solution1: Iteration
 
