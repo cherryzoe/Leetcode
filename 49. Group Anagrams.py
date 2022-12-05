@@ -14,6 +14,15 @@
 # All inputs will be in lowercase.
 # The order of your output does not matter.
 
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        dic = defaultdict(list)
+
+        for string in strs:
+            dic[''.join(sorted(string))].append(string)
+            
+        return list(dic.values())
+
 
 class Solution(object):
     def groupAnagrams(self, strs):
